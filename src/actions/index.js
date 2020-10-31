@@ -1,8 +1,7 @@
-export const loginCheck = (userObj) => ({
-  type: "LOGINCHECK",
+export const signIn = (userObj) => ({
+  type: "SIGN_IN",
   payload: userObj,
 });
-export const logOutClickEvent = (userObj) => ({
-  type: "LOGOUTCHECK",
-  payload: userObj,
+export const signOut = () => ({
+  type: "SIGN_OUT"
 });

@@ -14,6 +14,6 @@ const MyPage = ({ userObj }) => {
   );
 };
 const mapStateToProps = (state) => {
-  return { userObj: state.loginReducer.userObj };
+  return { userObj: state.auth.userObj };
 };
 export default connect(mapStateToProps)(MyPage);
