@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Auth } from "../components";
-import { BigCalendar } from '../components';
+import { BigCalendar, SearchForm } from "../components";
 
 const Home = () => {
   return (
@@ -11,7 +11,8 @@ const Home = () => {
         <Link to="/detail">go to detail</Link>
       </div>
       <Auth />
-      <BigCalendar/>
+      <BigCalendar />
+      <SearchForm />
     </div>
   );
 };
