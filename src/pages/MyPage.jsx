@@ -1,19 +1,30 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-const MyPage = ({ userObj }) => {
+import React, { useState, useEffect } from "react";
+import { Link, Redirect } from "react-router-dom";
+import { Profile } from "../components";
+import { useSelector, useDispatch } from "react-redux";
+import { needSigningIn } from "../actions";
+
+const MyPage = () => {
+  const isSignedIn = useSelector((state) => state.auth.isSignedIn);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    !isSignedIn && dispatch(needSigningIn());
+  }, []);
+  
   return (
     <>
-      <div>
-        <h1>Mypage</h1>
-        <h1>{userObj.name}</h1>
-        <img src={userObj.imageUrl} alt="img" />
-      </div>
-      <Link to="/">go to home</Link>
+      {!isSignedIn ? (
+        <Redirect to="/" />
+      ) : (
+        <>
+          <h1>Mypage</h1>
+          <Link to="/">go to home</Link>
+          <Profile />
+        </>
+      )}
     </>
   );
 };
-const mapStateToProps = (state) => {
-  return { userObj: state.auth.userObj };
-};
-export default connect(mapStateToProps)(MyPage);
+
+export default MyPage;

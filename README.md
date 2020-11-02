@@ -1,25 +1,5 @@
 # front
 
-<pre>
--implement 
-[ ] Redux
-[ ] Oauth 2.0 (google and?..)
-
-- optimization
-[V] loadable component ( dynamic import )
-[ ] useCallback
-
--used
-[ ] axios
-[ ] react-google-login
-[ ] reactjs-popup
-</pre>
-
-<pre>
-<h4>Notes</h4>
-json --(JSON.stringfy)--> string
-json <--(JSON.parse)----- string
-</pre>
 #### TODO
 <pre>
 [ ] 메인 페이지
@@ -32,7 +12,30 @@ json <--(JSON.parse)----- string
 [ ] 좋아요 한 자격증 출력
 [ ] 스터디 플랜 캘린더에 표시
 [ ] 투두 리스트 표시
-[ ] 날짜별 조회 페이지
+[V] 날짜별 조회 페이지
 [ ] 캘린더에 자격증 일정 표시
 [ ] 자격증 세부 정보 표시 팝업
+[ ] python datetime to JS date 
+</pre>
+
+<pre>
+-implement 
+[V] Redux
+[ ] Oauth 2.0 (google and?..)
+
+- optimization
+[V] loadable component ( dynamic import )
+[ ] useCallback
+
+- used
+[ ] axios
+[V] react-google-login
+[V] reactjs-popup
+
+</pre>
+
+#### Notes
+<pre>
+json --(JSON.stringfy)--> string
+json <--(JSON.parse)----- string
 </pre>

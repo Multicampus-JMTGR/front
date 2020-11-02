@@ -1,0 +1,32 @@
+{
+  "testSet": [
+    {
+      "title": "Siri",
+      "isLike": false
+    },
+    {
+      "title": "Alexa",
+      "isLike": false
+    },
+    {
+      "title": "Google",
+      "isLike": false
+    },
+    {
+      "title": "Facebook",
+      "isLike": false
+    },
+    {
+      "title": "Twitter",
+      "isLike": false
+    },
+    {
+      "title": "Linkedin",
+      "isLike": false
+    },
+    {
+      "title": "Sinkedin",
+      "isLike": false
+    }
+  ]
+}
