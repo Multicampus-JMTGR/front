@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-
-import data from "../data/testData.json";
-
+import "../../css/SearchForm.css";
+import { Paper, InputBase, IconButton } from "@material-ui/core";
+import SearchIcon from "@material-ui/icons/Search";
+import data from "../../data/testData.json";
 var testSet = data.testSet;
 
 const SearchForm = () => {
@@ -30,21 +31,23 @@ const SearchForm = () => {
       target: { textContent },
     } = event;
     data.testSet.forEach((test) => {
-      if (test.title === textContent)
-        test.isLike = !test.isLike;
+      if (test.title === textContent) test.isLike = !test.isLike;
     });
-    console.log(data.testSet)
+    console.log(data.testSet);
   };
   return (
-    <form onSubmit={onSubmit}>
-      <input
-        type="text"
-        placeholder="자격증 검색"
-        value={seachCertification}
-        onChange={onChange}
-        autoFocus
-      />
-      <input type="submit" value="Search" />
+    <div className="searchform-container">
+      <Paper component="form" onSubmit={onSubmit} className="searchform-paper">
+        <IconButton type="submit" aria-label="search">
+          <SearchIcon />
+        </IconButton>
+        <InputBase
+          placeholder="Search.."
+          type="text"
+          value={seachCertification}
+          onChange={onChange}
+        />
+      </Paper>
       <ul>
         {certificationResults.map((certificationResult, index) => (
           <li
@@ -56,7 +59,7 @@ const SearchForm = () => {
           </li>
         ))}
       </ul>
-    </form>
+    </div>
   );
 };
 

@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "PopUp.scss",
+        "FontAndColor.scss"
+    ],
+    "names": [],
+    "file": "PopUp.css"
+}

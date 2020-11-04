@@ -1,0 +1,52 @@
+@import "./Flex.scss";
+@import "./FontAndColor.scss";
+html {
+  height: 100%;
+}
+// body {
+//   background: no-repeat;
+//   background-color: $theme-color-1 !important;
+//   background-image: url("../images/bgimage.png") !important;
+//   background-size: cover;
+//   background-position: center;
+//   height: 100%;
+// }
+a {
+  text-decoration: none;
+  color: $a-color;
+  span {
+    font-size: $a-size;
+    &:hover {
+      font-size: $a-hover-font-size;
+      transition-duration: 0.1s;
+    }
+  }
+}
+
+li {
+  list-style-type: none; /* Remove bullets */
+}
+.app-container {
+  width: 100%;
+  @include flex-div(column);
+}
+.header-container {
+  @include flex-div(row);
+  position: fixed;
+  width: 100vw;
+  height: 5vh;
+  top: 0;
+  header {
+    right: 0;
+  }
+}
+html {
+  background: no-repeat;
+  background-color: $theme-color-1 !important;
+  background-image: url("../images/bgimage.png") !important;
+  background-size: 70vw;
+  background-position: center;
+//   height: 100vh;
+//   width: 100vw;
+  margin: -3px;
+}

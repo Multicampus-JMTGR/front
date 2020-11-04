@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,qBAAqB,CAAC;EACpB,UAAU,EAAE,GAAG;CAChB;;AACD,AAAA,iBAAiB,CAAC;EAChB,gBAAgB,ECFF,OAAO;EDGrB,KAAK,EAAE,IAAI;CAKZ;;AAPD,AAGE,iBAHe,AAGd,MAAM,CAAC;EACN,KAAK,EAAE,IAAI;EACX,mBAAmB,EAAE,IAAI;CAC1B",
+    "sources": [
+        "SearchForm.scss",
+        "FontAndColor.scss"
+    ],
+    "names": [],
+    "file": "SearchForm.css"
+}

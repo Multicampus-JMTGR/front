@@ -21,14 +21,14 @@
 <pre>
 -implement 
 [V] Redux
-[ ] Oauth 2.0 (google and?..)
+[V] Oauth 2.0 (google and?..)
 
 - optimization
 [V] loadable component ( dynamic import )
 [ ] useCallback
 
 - used
-[ ] axios
+[V] axios
 [V] react-google-login
 [V] reactjs-popup
 

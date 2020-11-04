@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { Profile } from "../components";
 import { useSelector, useDispatch } from "react-redux";
 import { needSigningIn } from "../actions";
@@ -11,20 +11,8 @@ const MyPage = () => {
   useEffect(() => {
     !isSignedIn && dispatch(needSigningIn());
   }, []);
-  
-  return (
-    <>
-      {!isSignedIn ? (
-        <Redirect to="/" />
-      ) : (
-        <>
-          <h1>Mypage</h1>
-          <Link to="/">go to home</Link>
-          <Profile />
-        </>
-      )}
-    </>
-  );
+
+  return <>{!isSignedIn ? <Redirect to="/" /> : <Profile />}</>;
 };
 
 export default MyPage;

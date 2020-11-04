@@ -3,9 +3,10 @@ import Popup from "reactjs-popup";
 import GoogleLogin from "react-google-login";
 import GitHubLogin from "react-github-login";
 import "reactjs-popup/dist/index.css";
-import { signIn, signOut } from "../actions";
+import { signIn, signOut } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
-
+import { Button } from "@material-ui/core";
+import "../../css/PopUp.css";
 const LoginPopUp = () => {
   const dispatch = useDispatch();
   const needSignIn = useSelector((state) => state.auth.needSignIn);
@@ -16,23 +17,32 @@ const LoginPopUp = () => {
   };
   return (
     <>
-    <Popup open={needSignIn} trigger={<button>Sign In</button>}position="bottom center" modal>
-      <h1>Sign In Page</h1>
-      <GoogleLogin
-        clientId={process.env.REACT_APP_GOOGLE_LOGIN_CLIENTID}
-        onSuccess={onSignInSuccess}
-        onFailure={() => console.log("error")}
-        //   isSignedIn={true}
-        //   autoLoad={true}
-        cookiePolicy={"single_host_origin"}
-      />
-      {/* <GitHubLogin
+      <Popup
+        open={needSignIn}
+        trigger={
+          <Button variant="contained" color="primary">
+            Sign In
+          </Button>
+        }
+        position="bottom center"
+        modal
+      >
+        <h1>Sign In Page</h1>
+        <GoogleLogin
+          clientId={process.env.REACT_APP_GOOGLE_LOGIN_CLIENTID}
+          onSuccess={onSignInSuccess}
+          onFailure={() => console.log("error")}
+          //   isSignedIn={true}
+          //   autoLoad={true}
+          cookiePolicy={"single_host_origin"}
+        />
+        {/* <GitHubLogin
         clientId={process.env.REACT_APP_GITHUB_LOGIN_CLIENTID}
         onSuccess={onSignInSuccess}
         valid={true}
         onFailure={() => console.log("error")}
       /> */}
-    </Popup>
+      </Popup>
     </>
   );
 };
