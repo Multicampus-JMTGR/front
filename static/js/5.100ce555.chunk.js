@@ -1,0 +1,2 @@
+(this["webpackJsonpsecond-project"]=this["webpackJsonpsecond-project"]||[]).push([[5],{80:function(e,c,t){"use strict";t.r(c);var s=t(3),a=(t(0),t(20)),i=t(33);c.default=function(){return Object(s.jsxs)("div",{className:"home-container",children:[Object(s.jsx)("h1",{children:"Home Page"}),Object(s.jsx)(a.c,{to:"/detail",activeClassName:"is-active",children:"Detail"}),Object(s.jsx)(a.c,{to:"/calendar",activeClassName:"is-active",children:"Calendar"}),Object(s.jsx)(i.a,{}),Object(s.jsx)(i.d,{})]})}}}]);
+//# sourceMappingURL=5.100ce555.chunk.js.map
