@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "../../css/SearchForm.css";
 import { Paper, InputBase, IconButton } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import data from "../../data/testData.json";
+import "./SearchForm.css";
+
 var testSet = data.testSet;
 
 const SearchForm = () => {
@@ -16,10 +17,12 @@ const SearchForm = () => {
     // console.log(seachCertification);
   };
   useEffect(() => {
-    const results = testSet.filter((test) =>
-      test.title.toLowerCase().includes(seachCertification)
-    );
-    setCertificationResults(results);
+    if (seachCertification !== "") {
+      const results = testSet.filter((test) =>
+        test.title.toLowerCase().includes(seachCertification)
+      );
+      setCertificationResults(results);
+    }
   }, [seachCertification]);
 
   const onSubmit = (event) => {

@@ -2,13 +2,12 @@ import React from "react";
 import { Calendar, Views, momentLocalizer } from "react-big-calendar";
 import style from "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
-
 const localizer = momentLocalizer(moment);
 let allViews = Object.keys(Views).map((k) => Views[k]);
 const ColoredDateCellWrapper = ({ children }) =>
   React.cloneElement(React.Children.only(children), {
     style: {
-      backgroundColor: "lightblue",
+      backgroundColor: "#eae7dc",
     },
   });
 
@@ -31,14 +30,16 @@ const BigCalendar = () => {
     resource: "Have a good days",
   };
 
-  let defaultDate = new Date(moment().format('YYYY,MM,DD'));
+  let defaultDate = new Date(moment().format("YYYY,MM,DD"));
   return (
     <div>
       <Calendar
         events={[e, e2]}
-        eventPropGetter={(event) => ({style:{
-            backgroundColor: event.id % 2 === 0 ? 'red' : 'blue',
-        }})}
+        eventPropGetter={(event) => ({
+          style: {
+            backgroundColor: event.id % 2 === 0 ? "#e85a4f" : "#8e8d8a",
+          },
+        })}
         views={allViews}
         step={60}
         showMultiDayTimes
@@ -47,7 +48,9 @@ const BigCalendar = () => {
           timeSlotWrapper: ColoredDateCellWrapper,
         }}
         localizer={localizer}
-        style={(style, { height: "90vh" })}
+        style={
+          (style, { width: "80vw", height: "70vh", backgroundColor: "#eae7dc" })
+        }
       />
     </div>
   );

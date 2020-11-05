@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AAAA,iBAAiB,CAAC;ECFhB,OAAO,EAAE,IAAI;EACb,cAAc,EDUI,GAAG;ECTrB,WAAW,EAAE,MAAM;EDUnB,KAAK,EAAE,IAAI;EACX,eAAe,EAAE,QAAQ;EACzB,MAAM,EAAE,QAAQ;CACjB;;AAbD,AACE,iBADe,CACf,CAAC,CAAC;EACA,SAAS,EAAE,MAAM;EACjB,KAAK,EECO,OAAO;EFGnB,MAAM,EAAE,MAAM;CACf;;AARH,AAII,iBAJa,CACf,CAAC,AAGE,MAAM,CAAC;EACN,KAAK,EEFK,OAAO;CFGlB;;AAQL,AAAA,UAAU,CAAC;EACT,SAAS,EAAE,IAAI;EACf,KAAK,EEZS,OAAO;EFarB,YAAY,EAAE,IAAI;CACnB",
+    "sources": [
+        "Header.scss",
+        "../../css/Flex.scss",
+        "../../css/FontAndColor.scss"
+    ],
+    "names": [],
+    "file": "Header.css"
+}

@@ -1,0 +1,15 @@
+.sign-btn {
+  font-family: "Amaranth", sans-serif;
+  font-size: 1.1rem;
+  margin-left: 0.7rem;
+  border-radius: 0.6rem;
+  border: 0.2rem solid #e98074;
+  background-color: #e98074;
+  color: #eae7dc;
+}
+
+.sign-btn:hover {
+  color: #e98074;
+  background-color: #eae7dc;
+}
+/*# sourceMappingURL=Auth.css.map */

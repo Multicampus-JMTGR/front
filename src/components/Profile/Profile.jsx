@@ -1,14 +1,9 @@
 import React from "react";
-import { Button } from "@material-ui/core";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import "../../css/Profile.css";
-const Profile = ({ userObj, history }) => {
+import "./Profile.css";
+const Profile = ({ userObj }) => {
   return (
     <>
-      <Link to="/">
-        <Button>Home</Button>
-      </Link>
       <div
         style={{ backgroundColor: "skyblue", width: "100vw", height: "100vh" }}
       >

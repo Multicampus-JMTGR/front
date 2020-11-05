@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,SAAS,CAAC;EACR,WAAW,EAAE,sBAAsB;EACnC,SAAS,EAAE,MAAM;EACjB,WAAW,EAAE,MAAM;EACnB,aAAa,EAAE,MAAM;EACrB,MAAM,EAAE,MAAM,CAAC,KAAK,CCDN,OAAO;EDErB,gBAAgB,ECFF,OAAO;EDGrB,KAAK,ECNS,OAAO;CDWtB;;AAZD,AAQE,SARO,AAQN,MAAM,CAAC;EACN,KAAK,ECLO,OAAO;EDMnB,gBAAgB,ECTJ,OAAO;CDUpB",
+    "sources": [
+        "Auth.scss",
+        "../../css/FontAndColor.scss",
+        "../../css/Flex.scss"
+    ],
+    "names": [],
+    "file": "Auth.css"
+}

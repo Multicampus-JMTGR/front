@@ -1,0 +1,15 @@
+@import "../../css/FontAndColor.scss";
+@import "../../css/Flex.scss";
+.sign-btn {
+  font-family: "Amaranth", sans-serif;
+  font-size: 1.1rem;
+  margin-left: 0.7rem;
+  border-radius: 0.6rem;
+  border: 0.2rem solid $theme-color-4;
+  background-color: $theme-color-4;
+  color: $theme-color-1;
+  &:hover {
+    color: $theme-color-4;
+    background-color: $theme-color-1;
+  }
+}

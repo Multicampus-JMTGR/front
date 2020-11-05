@@ -1,0 +1,29 @@
+@import "../../css//Flex.scss";
+@import "../../css/FontAndColor.scss";
+@import url("https://fonts.googleapis.com/css2?family=Amaranth&display=swap");
+html {
+  height: 100%;
+  font-family: "Amaranth", sans-serif;
+}
+body {
+  background: no-repeat;
+  background-color: $theme-color-1 !important;
+  background-image: url("../../images/bgimage.png") !important;
+  background-size: 70vw;
+  background-position: center;
+  height: 100%;
+}
+a {
+  text-decoration: none;
+  color: $a-color;
+}
+ul {
+  list-style-position: inside;
+}
+li {
+  list-style-type: none; /* Remove bullets */
+}
+.app-container {
+  width: 100%;
+  @include flex-div(column);
+}
