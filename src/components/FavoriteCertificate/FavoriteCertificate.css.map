@@ -1,0 +1,13 @@
+{
+    "version": 3,
+    "mappings": "AAIA,AAAA,+BAA+B,CAAC;EAC9B,KAAK,EAAE,IAAI;EACX,eAAe,EAAE,UAAU;CAS5B;;AAXD,AAGE,+BAH6B,CAG7B,qCAAqC,CAAC;ECJtC,aAAa,EAAE,IAAI;EACnB,MAAM,EDIkB,GAAG,CCJN,KAAK,CCCZ,OAAO;EFInB,KAAK,EAAE,GAAG;EACV,gBAAgB,EELJ,OAAO;EFMnB,SAAS,EAAE,MAAM;EACjB,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,WAAW;CACrB;;AAGH,AAAA,0BAA0B,CAAC;EGhBzB,OAAO,EAAE,IAAI;EACb,cAAc,EHgBI,MAAM;EGfxB,WAAW,EAAE,MAAM;EFAnB,aAAa,EAAE,IAAI;EACnB,MAAM,EDegB,GAAG,CCfJ,KAAK,CCCZ,OAAO;EFerB,gBAAgB,EEhBF,OAAO;EFiBrB,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,QAAQ;CACjB",
+    "sources": [
+        "FavoriteCertificate.scss",
+        "../../css/ComponentBorder.scss",
+        "../../css/FontAndColor.scss",
+        "../../css/Flex.scss",
+        "../../css/FontAndColor.scss"
+    ],
+    "names": [],
+    "file": "FavoriteCertificate.css"
+}

@@ -1,0 +1,24 @@
+@import "../../css/ComponentBorder.scss";
+@import "../../css/Flex.scss";
+@import "../../css/FontAndColor.scss";
+
+.todo-certificate-container {
+  width: 40vw;
+  margin-left: auto;
+  .todo-certificate-inner-container {
+    @include border-style(0px);
+    width: 80%;
+    background-color: $theme-color-2;
+    font-size: 1.2rem;
+    margin: auto;
+    padding: 1rem 0.5rem;
+  }
+}
+
+.todo-certificate-list {
+  @include border-style(0px);
+  @include flex-div(column);
+  background-color: white;
+  width: 90%;
+  margin: 1vh auto;
+}

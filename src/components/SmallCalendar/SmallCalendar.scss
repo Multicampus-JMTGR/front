@@ -1,0 +1,6 @@
+@import "../../css/ComponentBorder.scss";
+
+.small-calendar {
+  @include border-style(0px);
+  margin-left: auto;
+}

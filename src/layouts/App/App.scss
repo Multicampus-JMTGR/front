@@ -25,3 +25,23 @@ ul {
   width: 100%;
   @include flex-div(column);
 }
+.mypage-container {
+  @include flex-div(column);
+  width: 90vw;
+  height: 100vh;
+  margin: auto;
+  align-items: flex-start;
+  background-color: $theme-color-1;
+}
+.mypage-container-upper {
+  @include flex-div(row);
+  margin: 5vh auto;
+  width: 80%;
+  align-items: flex-start;
+}
+.mypage-container-downer {
+  @include flex-div(row);
+  margin: 5vh auto;
+  width: 90%;
+  align-items: flex-end;
+}

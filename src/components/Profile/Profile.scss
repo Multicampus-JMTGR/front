@@ -1,12 +1,12 @@
 @import "../../css/Flex.scss";
 @import "../../css/FontAndColor.scss";
-.profile-container {
-  @include flex-div(column);
-  width: 90vw;
-  height: 100vh;
-  margin: auto;
-  background-color: $theme-color-1;
-}
+// .profile-container {
+//   @include flex-div(column);
+//   width: 90vw;
+//   height: 100vh;
+//   margin: auto;
+//   background-color: $theme-color-1;
+// }
 .big-avatar {
   border-radius: 50%;
 }
@@ -15,7 +15,6 @@
   width: 100%;
   justify-content: flex-start;
   font-size: 1.2rem;
-
   margin: 5vh auto;
 }
 .profile-card-info {

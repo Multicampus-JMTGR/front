@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,eAAe,CAAC;ECCd,aAAa,EAAE,IAAI;EACnB,MAAM,EDDgB,GAAG,CCCJ,KAAK,CCDZ,OAAO;EFCrB,WAAW,EAAE,IAAI;CAClB",
+    "sources": [
+        "SmallCalendar.scss",
+        "../../css/ComponentBorder.scss",
+        "../../css/FontAndColor.scss"
+    ],
+    "names": [],
+    "file": "SmallCalendar.css"
+}

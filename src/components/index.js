@@ -4,3 +4,6 @@ export { default as BigCalendar } from "./BigCalendar/BigCalendar";
 export { default as SearchForm } from "./SearchForm/SearchForm";
 export { default as Profile } from "./Profile/Profile";
 export { default as Header } from "./Header/Header";
+export { default as SmallCalendar } from "./SmallCalendar/SmallCalendar";
+export { default as FavoriteCertificate } from "./FavoriteCertificate/FavoriteCertificate";
+export { default as Todo } from "./Todo/Todo";

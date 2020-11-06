@@ -1,0 +1,6 @@
+@import "./FontAndColor.scss";
+
+@mixin border-style($border-size) {
+  border-radius: 2rem;
+  border: $border-size solid $theme-color-3;
+}
