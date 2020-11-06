@@ -27,8 +27,16 @@
 }
 
 .app-title {
+  margin-right: auto;
+}
+
+.app-title a {
   font-size: 3rem;
   color: #e85a4f;
-  margin-right: auto;
+}
+
+.app-title a:hover {
+  font-size: 3rem;
+  color: #e85a4f;
 }
 /*# sourceMappingURL=Header.css.map */

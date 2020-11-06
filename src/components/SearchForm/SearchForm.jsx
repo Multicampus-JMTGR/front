@@ -7,6 +7,7 @@ import "./SearchForm.css";
 var testSet = data.testSet;
 
 const SearchForm = () => {
+  const [isInitial, setIsInitial] = useState(true);
   const [seachCertification, setSearchCertification] = useState("");
   const [certificationResults, setCertificationResults] = useState([]);
   const onChange = (event) => {
@@ -21,8 +22,13 @@ const SearchForm = () => {
       const results = testSet.filter((test) =>
         test.title.toLowerCase().includes(seachCertification)
       );
+      setIsInitial(false);
       setCertificationResults(results);
     }
+    // else if (setSearchCertification === "" && !isInitial) {
+    //     console.log('here')
+    //   setCertificationResults([]);
+    // }
   }, [seachCertification]);
 
   const onSubmit = (event) => {
@@ -51,17 +57,24 @@ const SearchForm = () => {
           onChange={onChange}
         />
       </Paper>
-      <ul>
-        {certificationResults.map((certificationResult, index) => (
-          <li
-            key={index}
-            onClick={onClickCetification}
-            style={{ color: certificationResult.isLike ? "red" : "" }}
-          >
-            {certificationResult.title}
-          </li>
-        ))}
-      </ul>
+
+      {!isInitial && (
+        <ul>
+          {certificationResults.length ? (
+            certificationResults.map((certificationResult, index) => (
+              <li
+                key={index}
+                onClick={onClickCetification}
+                style={{ color: certificationResult.isLike ? "red" : "" }}
+              >
+                {certificationResult.title}
+              </li>
+            ))
+          ) : (
+            <li>No result</li>
+          )}
+        </ul>
+      )}
     </div>
   );
 };

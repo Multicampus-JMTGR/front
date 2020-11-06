@@ -1,6 +1,9 @@
 # front
 
+[You can watch it in here](https://multicampus-jmtgr.github.io/front/)
+
 #### TODO
+
 <pre>
 [ ] 메인 페이지
 [.] 로그인 기능 연동
@@ -22,6 +25,7 @@
 -implement 
 [V] Redux
 [V] Oauth 2.0 (google and?..)
+[ ] Sass
 
 - optimization
 [V] loadable component ( dynamic import )
@@ -35,6 +39,7 @@
 </pre>
 
 #### Notes
+
 <pre>
 json --(JSON.stringfy)--> string
 json <--(JSON.parse)----- string

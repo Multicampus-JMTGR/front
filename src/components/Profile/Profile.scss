@@ -1,0 +1,39 @@
+@import "../../css/Flex.scss";
+@import "../../css/FontAndColor.scss";
+.profile-container {
+  @include flex-div(column);
+  width: 90vw;
+  height: 100vh;
+  margin: auto;
+  background-color: $theme-color-1;
+}
+.big-avatar {
+  border-radius: 50%;
+}
+.profile-card {
+  @include flex-div(row);
+  width: 100%;
+  justify-content: flex-start;
+  font-size: 1.2rem;
+
+  margin: 5vh auto;
+}
+.profile-card-info {
+  @include flex-div(column);
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: 2.5rem;
+  span {
+    margin: 0.5rem;
+  }
+}
+.profile-card-favorite {
+  color: $theme-color-5;
+}
+.profile-card-name {
+  font-size: 2rem;
+  color: $theme-color-4;
+}
+.profile-card-email {
+  color: $theme-color-3;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { Auth } from "..";
 import { signOut } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,7 +19,9 @@ const Header = () => {
 
   return (
     <header className="header-container">
-      <span className="app-title">JMTGR</span>
+      <span className="app-title">
+        <Link to="/">JMTGR </Link>
+      </span>
       <Link to={`${deployUrl}/`}>Home</Link>
       <Link to={`${deployUrl}/calendar`}>Calendar</Link>
       <Link to={`${deployUrl}/detail`}>Detail</Link>

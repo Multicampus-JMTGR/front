@@ -10,7 +10,7 @@ import "./App.css";
 const Home = loadable(() => import("../../pages/Home"));
 const Detail = loadable(() => import("../../pages/Detail"));
 const MyPage = loadable(() => import("../../pages/MyPage"));
-const Calendar = loadable(() => import("../../pages/CalendarPage"));
+const CalendarPage = loadable(() => import("../../pages/CalendarPage"));
 const deployUrl = "/front";
 
 const App = () => {
@@ -32,7 +32,7 @@ const App = () => {
         </Route>
         <Route exact path={`${deployUrl}/`} component={Home} />
         <Route path={`${deployUrl}/detail/:detail`} component={Detail} />
-        <Route path={`${deployUrl}/calendar`} component={Calendar} />
+        <Route path={`${deployUrl}/calendar`} component={CalendarPage} />
         <Route path={`${deployUrl}/mypage`} component={MyPage} />
       </Switch>
     </div>

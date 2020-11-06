@@ -1,1 +1,77 @@
-/* No CSS *//*# sourceMappingURL=Profile.css.map */
+.profile-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90vw;
+  height: 100vh;
+  margin: auto;
+  background-color: #eae7dc;
+}
+
+.big-avatar {
+  border-radius: 50%;
+}
+
+.profile-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  font-size: 1.2rem;
+  margin: 5vh auto;
+}
+
+.profile-card-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-left: 2.5rem;
+}
+
+.profile-card-info span {
+  margin: 0.5rem;
+}
+
+.profile-card-favorite {
+  color: #e85a4f;
+}
+
+.profile-card-name {
+  font-size: 2rem;
+  color: #e98074;
+}
+
+.profile-card-email {
+  color: #8e8d8a;
+}
+/*# sourceMappingURL=Profile.css.map */

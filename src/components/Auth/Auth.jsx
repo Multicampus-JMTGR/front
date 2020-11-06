@@ -21,6 +21,7 @@ const Auth = () => {
       open={needSignIn}
       trigger={<button className="sign-btn">Sign In</button>}
       position="bottom center"
+      contentStyle={{ borderRadius: ".3rem" }}
       modal
     >
       <h1>Sign In Page</h1>

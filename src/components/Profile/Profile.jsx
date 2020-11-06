@@ -4,12 +4,26 @@ import "./Profile.css";
 const Profile = ({ userObj }) => {
   return (
     <>
-      <div
-        style={{ backgroundColor: "skyblue", width: "100vw", height: "100vh" }}
-      >
-        <p>My Profile</p>
-        <p>{userObj.profileObj.name}</p>
-        <img src={userObj.profileObj.imageUrl} alt="img" />
+      <div className="profile-container">
+        <div className="profile-card">
+          <img
+            className="big-avatar"
+            src={userObj.profileObj.imageUrl}
+            alt="img"
+          />
+          <div className="profile-card-info">
+            <span className="profile-card-name">{userObj.profileObj.name}</span>
+            <span className="profile-card-email">
+              {userObj.profileObj.email}
+            </span>
+            <span>
+              Big on :{" "}
+              <span className="profile-card-favorite">
+                {"something, and something"}{" "}
+              </span>
+            </span>
+          </div>
+        </div>
       </div>
     </>
   );

@@ -12,7 +12,8 @@ const MyPage = () => {
     !isSignedIn && dispatch(needSigningIn());
   }, []);
 
-  return <>{!isSignedIn ? <Redirect to="/" /> : <Profile />}</>;
+  return <>{isSignedIn ? <Profile /> : <Redirect to="/" />}</>;
+    // return <Profile />
 };
 
 export default MyPage;

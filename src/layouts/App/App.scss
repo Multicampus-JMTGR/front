@@ -18,10 +18,8 @@ a {
   color: $a-color;
 }
 ul {
-  list-style-position: inside;
-}
-li {
-  list-style-type: none; /* Remove bullets */
+  list-style: none;
+  padding-left: 0;
 }
 .app-container {
   width: 100%;
