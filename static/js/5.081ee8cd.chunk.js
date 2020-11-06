@@ -1,0 +1,2 @@
+(this["webpackJsonpsecond-project"]=this["webpackJsonpsecond-project"]||[]).push([[5],{117:function(e,c,t){"use strict";t.r(c);var s=t(3),n=(t(0),t(54));c.default=function(){return Object(s.jsx)("div",{children:Object(s.jsx)(n.e,{})})}}}]);
+//# sourceMappingURL=5.081ee8cd.chunk.js.map

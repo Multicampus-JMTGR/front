@@ -1,1 +1,0 @@
-{"version":3,"sources":["pages/Detail.jsx"],"names":["Detail"],"mappings":"8IAQeA,UAPA,WACb,OACE,8BACE","file":"static/js/4.95e97030.chunk.js","sourcesContent":["import React from \"react\";\nconst Detail = () => {\n  return (\n    <div>\n      <h1>Detail page</h1>\n    </div>\n  );\n};\nexport default Detail;\n"],"sourceRoot":""}
