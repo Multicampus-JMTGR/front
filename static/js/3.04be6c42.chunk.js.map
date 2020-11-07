@@ -1,0 +1,1 @@
+{"version":3,"sources":["pages/CalendarPage.jsx"],"names":["Calendar"],"mappings":"yJAQeA,UAJE,WACf,OAAO,cAAC,IAAD","file":"static/js/3.04be6c42.chunk.js","sourcesContent":["import React from \"react\";\n\nimport { BigCalendar } from \"../components\";\n\nconst Calendar = () => {\n  return <BigCalendar />;\n};\n\nexport default Calendar;\n"],"sourceRoot":""}

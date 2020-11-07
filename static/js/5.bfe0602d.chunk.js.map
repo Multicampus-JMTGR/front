@@ -1,1 +1,0 @@
-{"version":3,"sources":["pages/Home.jsx"],"names":["Home"],"mappings":"yJAYeA,UARF,WACX,OACE,8BACE,cAAC,IAAD","file":"static/js/5.bfe0602d.chunk.js","sourcesContent":["import React from \"react\";\n\nimport { SearchForm } from \"../components\";\n\nconst Home = () => {\n  return (\n    <div>\n      <SearchForm />\n    </div>\n  );\n};\n\nexport default Home;\n"],"sourceRoot":""}
