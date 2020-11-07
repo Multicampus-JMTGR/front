@@ -1,0 +1,30 @@
+@import "../../css/Flex.scss";
+.toolbar-container {
+  @include flex-div(row);
+}
+.back-next-icons {
+  @include flex-div(row);
+}
+.arrow-icons {
+  font-size: 2rem !important;
+  &:hover {
+    opacity: 0.5 !important;
+  }
+}
+.today-span {
+  &:hover {
+    opacity: 0.5 !important;
+  }
+}
+.dmy-btns {
+  margin-left: auto;
+  justify-content: flex-end;
+}
+.rbc-btn-group {
+  span {
+    margin: 0.4rem;
+  }
+  span:hover {
+    opacity: 0.5;
+  }
+}

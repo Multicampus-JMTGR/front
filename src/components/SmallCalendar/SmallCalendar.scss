@@ -1,6 +1,9 @@
 @import "../../css/ComponentBorder.scss";
-
+@import "../../css/FontAndColor.scss";
 .small-calendar {
   @include border-style(0px);
   margin-left: auto;
+}
+.highlight {
+  color: $theme-color-5;
 }

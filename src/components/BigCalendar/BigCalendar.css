@@ -1,0 +1,53 @@
+.toolbar-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.back-next-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.arrow-icons {
+  font-size: 2rem !important;
+}
+
+.arrow-icons:hover {
+  opacity: 0.5 !important;
+}
+
+.today-span:hover {
+  opacity: 0.5 !important;
+}
+
+.dmy-btns {
+  margin-left: auto;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.rbc-btn-group span {
+  margin: 0.4rem;
+}
+
+.rbc-btn-group span:hover {
+  opacity: 0.5;
+}
+/*# sourceMappingURL=BigCalendar.css.map */

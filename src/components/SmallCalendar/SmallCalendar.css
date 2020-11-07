@@ -1,6 +1,10 @@
 .small-calendar {
   border-radius: 2rem;
-  border: 0px solid #eae7dc;
+  border: 0px solid #8e8d8a;
   margin-left: auto;
+}
+
+.highlight {
+  color: #e85a4f;
 }
 /*# sourceMappingURL=SmallCalendar.css.map */
