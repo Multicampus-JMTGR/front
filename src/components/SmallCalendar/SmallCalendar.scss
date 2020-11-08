@@ -1,8 +1,14 @@
 @import "../../css/ComponentBorder.scss";
 @import "../../css/FontAndColor.scss";
+@import "../../css/Flex.scss";
+
+.small-calendar-container {
+  @include flex-div(column);
+  align-items: center;
+  margin-left: auto;
+}
 .small-calendar {
   @include border-style(0px);
-  margin-left: auto;
 }
 .highlight {
   color: $theme-color-5;

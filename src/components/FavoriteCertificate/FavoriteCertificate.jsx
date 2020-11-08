@@ -5,6 +5,7 @@ const testSet = data.testSet;
 const FavoriteCertificate = () => {
   return (
     <div className="favorite-certificate-container">
+      <span>Favorite Certificates</span>
       <div className="favorite-certificate-inner-container">
         <ul>
           {testSet.map(

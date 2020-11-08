@@ -1,11 +1,12 @@
 {
     "version": 3,
-    "mappings": "AAEA,AAAA,eAAe,CAAC;ECCd,aAAa,EAAE,IAAI;EACnB,MAAM,EDDgB,GAAG,CCCJ,KAAK,CCCZ,OAAO;EFDrB,WAAW,EAAE,IAAI;CAClB;;AACD,AAAA,UAAU,CAAC;EACT,KAAK,EEAS,OAAO;CFCtB",
+    "mappings": "AAIA,AAAA,yBAAyB,CAAC;EIHxB,OAAO,EAAE,IAAI;EACb,cAAc,EJGI,MAAM;EIFxB,WAAW,EAAE,MAAM;EJGnB,WAAW,EAAE,MAAM;EACnB,WAAW,EAAE,IAAI;CAClB;;AACD,AAAA,eAAe,CAAC;ECNd,aAAa,EAAE,IAAI;EACnB,MAAM,EDMgB,GAAG,CCNJ,KAAK,CCCZ,OAAO;CFMtB;;AACD,AAAA,UAAU,CAAC;EACT,KAAK,EENS,OAAO;CFOtB",
     "sources": [
         "SmallCalendar.scss",
         "../../css/ComponentBorder.scss",
         "../../css/FontAndColor.scss",
-        "../../css/FontAndColor.scss"
+        "../../css/FontAndColor.scss",
+        "../../css/Flex.scss"
     ],
     "names": [],
     "file": "SmallCalendar.css"

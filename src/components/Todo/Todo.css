@@ -13,6 +13,12 @@
   padding: 1rem 0.5rem;
 }
 
+.todo-certificate-container span {
+  font-size: 1.5rem;
+  color: #e85a4f;
+  margin-left: calc(40vw - 90%);
+}
+
 .todo-certificate-list {
   border-radius: 2rem;
   border: 0px solid #8e8d8a;

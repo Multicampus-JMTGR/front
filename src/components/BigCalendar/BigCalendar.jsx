@@ -1,52 +1,14 @@
 import React, { useState } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
-import { Popover } from "@material-ui/core";
 import style from "react-big-calendar/lib/css/react-big-calendar.css";
 import Popup from "reactjs-popup";
 import moment from "moment";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import "./BigCalendar.css";
+
 const localizer = momentLocalizer(moment);
-const ColoredDateCellWrapper = ({ children }) =>
-  React.cloneElement(React.Children.only(children), {
-    style: {
-      backgroundColor: "#eae7dc",
-    },
-  });
 
-const CustomPoppver = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const handlePopoverOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handlePopoverClose = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
-  return (
-    <Popover
-      id="mouse-over-popover"
-      open={open}
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: "bottom",
-        horizontal: "left",
-      }}
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "left",
-      }}
-      onClose={handlePopoverClose}
-      disableRestoreFocus
-    >
-      <span>I use Popover.</span>
-    </Popover>
-  );
-};
 const popUpDetail = ({ event }) => {
   return (
     <Popup
@@ -103,7 +65,7 @@ const CustomToolbar = (toolbar) => {
   const label = () => {
     const date = moment(toolbar.date);
     return (
-      <span style={{ fontSize: "1.2rem" }}>
+      <span className="month-year-label">
         <b>{date.format("MMMM")}</b>
         <span> {date.format("YYYY")}</span>
       </span>
@@ -114,21 +76,15 @@ const CustomToolbar = (toolbar) => {
     <div className="toolbar-container">
       <div className="back-next-icons">
         <ArrowBackIosIcon className="arrow-icons" onClick={goToBack} />
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
+        <div className="label-today">
           <label className="label-date">{label()}</label>
           <span className="today-span" onClick={goToCurrent}>
-            today
+            Go to today
           </span>
         </div>
         <ArrowForwardIosIcon className="arrow-icons" onClick={goToNext} />
       </div>
-      <div className='dmy-btns'>
+      <div className="dmy-btns">
         <span className="rbc-btn-group">
           <span className="label-filter-off" onClick={goToMonthView}>
             Month
@@ -183,7 +139,6 @@ const BigCalendar = () => {
         components={{
           event: popUpDetail,
           toolbar: CustomToolbar,
-          //   timeSlotWrapper: ColoredDateCellWrapper,
         }}
         localizer={localizer}
         style={

@@ -6,6 +6,8 @@ const testSet = data.testSet;
 const Todo = () => {
   return (
     <div className="todo-certificate-container">
+      <span>Todo</span>
+
       <div className="todo-certificate-inner-container">
         <ul>
           {testSet.map(

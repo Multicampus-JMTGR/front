@@ -13,6 +13,11 @@
     margin: auto;
     padding: 1rem 0.5rem;
   }
+  span {
+    font-size: 1.5rem;
+    color: $theme-color-5;
+    margin-left: calc(40vw - 90%);
+  }
 }
 
 .todo-certificate-list {
