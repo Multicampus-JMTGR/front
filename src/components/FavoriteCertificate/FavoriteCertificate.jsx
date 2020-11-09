@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./FavoriteCertificate.css";
-import data from "../../data/testData.json";
-const testSet = data.testSet;
+
 const FavoriteCertificate = ({ myData }) => {
   //   const [favCerts, setFavCerts] = useState(myData?.myData.cert_likes);
   useEffect(() => {

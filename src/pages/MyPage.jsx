@@ -19,6 +19,10 @@ const MyPage = () => {
     `user/Detail/${userObj.profileObj.email}`,
     fetcher
   );
+  const { data: certData } = useSWR(
+    `certificate/361`, // 정보처리기사
+    fetcher
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -31,7 +35,7 @@ const MyPage = () => {
         <div className="mypage-container">
           <div className="mypage-container-upper">
             <Profile userObj={userObj} myData={myData} />
-            <SmallCalendar />
+            <SmallCalendar certData={certData}/>
           </div>
           <div className="mypage-container-downer">
             <FavoriteCertificate myData={myData} />

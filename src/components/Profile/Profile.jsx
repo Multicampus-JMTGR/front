@@ -1,5 +1,4 @@
 import React from "react";
-// import { connect } from "react-redux";
 import "./Profile.css";
 
 const Profile = ({ userObj, myData }) => {
@@ -32,8 +31,4 @@ const Profile = ({ userObj, myData }) => {
     </>
   );
 };
-// const mapStateToProps = (state) => {
-//   return { userObj: state.auth.userObj };
-// };
-// export default connect(mapStateToProps)(Profile);
 export default Profile;
