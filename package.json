@@ -24,6 +24,7 @@
     "react-scripts": "4.0.0",
     "reactjs-popup": "^2.0.4",
     "redux": "^4.0.5",
+    "swr": "^0.3.8",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -52,5 +53,6 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://multicampus-jmtgr.github.io/front/"
+  "proxy": "http://localhost:8000",
+  "secure": false
 }

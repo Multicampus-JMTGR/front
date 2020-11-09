@@ -7,8 +7,8 @@ html {
 }
 body {
   background: no-repeat;
-  background-color: $theme-color-1 !important;
-  background-image: url("../../images/bgimage.png") !important;
+  background-color: $theme-color-1;
+  background-image: url("../../images/bgimage.png");
   background-size: 70vw;
   background-position: center;
   height: 100%;
@@ -26,22 +26,19 @@ ul {
   @include flex-div(column);
 }
 .mypage-container {
-  @include flex-div(column);
+  @include flex-div-align(column, flex-start);
   width: 90vw;
   height: 100vh;
   margin: auto;
-  align-items: flex-start;
   background-color: $theme-color-1;
 }
 .mypage-container-upper {
-  @include flex-div(row);
+  @include flex-div-align(row, flex-start);
   margin: 5vh auto;
   width: 80%;
-  align-items: flex-start;
 }
 .mypage-container-downer {
-  @include flex-div(row);
+  @include flex-div-align(row, flex-end);
   margin: 5vh auto;
   width: 90%;
-  align-items: flex-end;
 }

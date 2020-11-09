@@ -11,16 +11,13 @@
   border-radius: 50%;
 }
 .profile-card {
-  @include flex-div(row);
+  @include flex-div(row, flex-start);
   width: 100%;
-  justify-content: flex-start;
   font-size: 1.2rem;
   margin: 5vh auto;
 }
 .profile-card-info {
-  @include flex-div(column);
-  align-items: flex-start;
-  justify-content: flex-start;
+  @include flex-div(column, flex-start, flex-start);
   margin-left: 2.5rem;
   span {
     margin: 0.5rem;

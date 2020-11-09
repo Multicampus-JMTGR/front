@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Avatar } from "@material-ui/core";
 import "./Header.css";
 
-const deployUrl = "/front";
+const deployUrl = "";
 
 const Header = () => {
   const dispatch = useDispatch();

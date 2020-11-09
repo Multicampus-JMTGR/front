@@ -9,8 +9,16 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { needSigningIn } from "../actions";
 import "../layouts/App/App.css";
+import useSWR from "swr";
+import fetcher from "../utils/fetcher";
+
 const MyPage = () => {
   const isSignedIn = useSelector((state) => state.auth.isSignedIn);
+  const userObj = useSelector((state) => state.auth.userObj);
+  const { data: myData } = useSWR(
+    `user/Detail/${userObj.profileObj.email}`,
+    fetcher
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,11 +30,11 @@ const MyPage = () => {
       {isSignedIn ? (
         <div className="mypage-container">
           <div className="mypage-container-upper">
-            <Profile />
+            <Profile userObj={userObj} myData={myData} />
             <SmallCalendar />
           </div>
           <div className="mypage-container-downer">
-            <FavoriteCertificate />
+            <FavoriteCertificate myData={myData} />
             <Todo />
           </div>
         </div>
