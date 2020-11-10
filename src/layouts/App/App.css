@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Amaranth&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amaranth&family=Nanum+Gothic:wght@700&display=swap");
 html {
   height: 100%;
-  font-family: "Amaranth", sans-serif;
+  font-family: "Amaranth", "Nanum Gothic", sans-serif;
 }
 
 body {
@@ -32,12 +32,6 @@ ul {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .mypage-container {
@@ -48,18 +42,12 @@ ul {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 90vw;
-  height: 100vh;
-  margin: auto;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  width: 90vw;
+  height: 100vh;
+  margin: auto;
   background-color: #eae7dc;
 }
 
@@ -71,17 +59,11 @@ ul {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 5vh auto;
-  width: 80%;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  margin: 5vh auto;
+  width: 80%;
 }
 
 .mypage-container-downer {
@@ -92,16 +74,48 @@ ul {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 5vh auto;
+  width: 90%;
+}
+
+.certificate-detail-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 5vh auto;
-  width: 90%;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  width: 90vw;
+  height: 100vh;
+  margin: auto;
+  background-color: #eae7dc;
+}
+
+.certificate-details {
+  color: #8e8d8a;
+}
+
+.certificate-values {
+  color: #e98074;
+}
+
+.certificate-name {
+  margin-top: 10vh;
+  color: #e98074;
+}
+
+.certificate-detail-inner-container {
+  border-radius: 2rem;
+  border: 0px solid #8e8d8a;
 }
 /*# sourceMappingURL=App.css.map */

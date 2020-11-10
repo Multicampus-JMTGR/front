@@ -7,3 +7,5 @@ export { default as Header } from "./Header/Header";
 export { default as SmallCalendar } from "./SmallCalendar/SmallCalendar";
 export { default as FavoriteCertificate } from "./FavoriteCertificate/FavoriteCertificate";
 export { default as Todo } from "./Todo/Todo";
+export { default as Loading } from "./Loading/Loading";
+export { default as PopUpLoading } from "./Loading/PopUpLoading";

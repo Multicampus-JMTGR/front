@@ -25,17 +25,27 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   border-radius: 2rem;
   border: 0px solid #8e8d8a;
   background-color: #d8c3a5;
   width: 95%;
   margin: 1vh auto;
+}
+
+.favorite-certificate-list a {
+  margin: auto;
+}
+
+.favorite-certificate-list button {
+  border-radius: 2rem;
+  border: 0px solid #8e8d8a;
+  background-color: #eae7dc;
 }
 /*# sourceMappingURL=FavoriteCertificate.css.map */

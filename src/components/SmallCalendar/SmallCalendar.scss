@@ -10,15 +10,24 @@
 .small-calendar {
   @include border-style(0px);
 }
-.highlight {
-  color: $theme-color-5;
+// .highlight {
+//   color: $theme-color-5;
+// }
+// .reg_start .test_start {
+//   color: #03fcdf !important;
+//   //   color: $theme-color-5;
+// }
+// .reg_end .test_end {
+//   color: $theme-color-3 !important;
+// }
+// .result {
+//   color: $theme-color-2 !important;
+// }
+.inside-pop-up {
+  @include flex-div-align(column, center);
 }
-.reg_start .reg_end {
-  color: $theme-color-5;
-}
-.test_end .test_end {
-  color: $theme-color-3;
-}
-.result {
-  color: $theme-color-4;
+.inside-pop-up-info {
+  div {
+    margin: 2rem;
+  }
 }

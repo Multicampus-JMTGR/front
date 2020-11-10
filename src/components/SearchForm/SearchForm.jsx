@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Loading } from "../../components";
 import { Paper, InputBase, IconButton } from "@material-ui/core";
+import useSWR from "swr";
+import fetcher from "../../utils/fetcher";
 import SearchIcon from "@material-ui/icons/Search";
 import data from "../../data/testData.json";
 import "./SearchForm.css";
@@ -8,42 +12,47 @@ var testSet = data.testSet;
 
 const SearchForm = () => {
   const [isInitial, setIsInitial] = useState(true);
-  const [seachCertification, setSearchCertification] = useState("");
-  const [certificationResults, setCertificationResults] = useState([]);
+  const [searchCertification, setSearchCertification] = useState("");
+  const [certificateResults, setCertificateResults] = useState([]);
+  const { data: queryData } = useSWR(
+    `api/certificate/CertificatesFilter/?keyword=${searchCertification}`,
+    fetcher
+  );
   const onChange = (event) => {
+    setIsInitial(false);
     const {
       target: { value },
     } = event;
     setSearchCertification(value.toLowerCase());
-    // console.log(seachCertification);
   };
   useEffect(() => {
-    if (seachCertification !== "") {
-      const results = testSet.filter((test) =>
-        test.title.toLowerCase().includes(seachCertification)
-      );
-      setIsInitial(false);
-      setCertificationResults(results);
-    }
+    setCertificateResults(queryData);
+    // if (searchCertification !== "") {
+    //   const results = testSet.filter((test) =>
+    //     test.title.toLowerCase().includes(searchCertification)
+    //   );
+    //   setIsInitial(false);
+    //   setCertificateResults(results);
+    // }
     // else if (setSearchCertification === "" && !isInitial) {
     //     console.log('here')
-    //   setCertificationResults([]);
+    //   setCertificateResults([]);
     // }
-  }, [seachCertification]);
+  }, [searchCertification]);
 
   const onSubmit = (event) => {
     event.preventDefault();
-    // console.log(seachCertification);
+    // console.log(searchCertification);
   };
-  const onClickCetification = (event) => {
-    const {
-      target: { textContent },
-    } = event;
-    data.testSet.forEach((test) => {
-      if (test.title === textContent) test.isLike = !test.isLike;
-    });
-    console.log(data.testSet);
-  };
+  //   const onClickCetification = (event) => {
+  //     const {
+  //       target: { textContent },
+  //     } = event;
+  //     // data.testSet.forEach((test) => {
+  //     //   if (test.title === textContent) test.isLike = !test.isLike;
+  //     // });
+  //     <Redirect to={`/detail/${textContent}`} />;
+  //   };
   return (
     <div className="searchform-container">
       <Paper component="form" onSubmit={onSubmit} className="searchform-paper">
@@ -53,25 +62,29 @@ const SearchForm = () => {
         <InputBase
           placeholder="Search.."
           type="text"
-          value={seachCertification}
+          value={searchCertification}
           onChange={onChange}
         />
       </Paper>
-
       {!isInitial && (
         <ul>
-          {certificationResults.length ? (
-            certificationResults.map((certificationResult, index) => (
-              <li
-                key={index}
-                onClick={onClickCetification}
-                style={{ color: certificationResult.isLike ? "red" : "" }}
-              >
-                {certificationResult.title}
-              </li>
-            ))
+          {queryData ? (
+            queryData.length ? (
+              queryData.map((qd, index) => (
+                <li key={index}>
+                  <Link
+                    style={{ fontSize: "1.2rem", margin: ".2rem" }}
+                    to={`/detail/${qd.cert_id}`}
+                  >
+                    {qd.name}
+                  </Link>
+                </li>
+              ))
+            ) : (
+              <li>No result</li>
+            )
           ) : (
-            <li>No result</li>
+            <Loading />
           )}
         </ul>
       )}

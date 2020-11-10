@@ -20,11 +20,15 @@ const Auth = () => {
     <Popup
       open={needSignIn}
       trigger={<button className="sign-btn">Sign In</button>}
-      position="bottom center"
-      contentStyle={{ borderRadius: ".3rem" }}
+      position="center center"
+      contentStyle={{
+        borderRadius: ".3rem",
+        width: "auto",
+        padding: "1.3rem 3rem",
+      }}
       modal
     >
-      <h1>Sign In Page</h1>
+      <div className="pop-up-app-title">JMTGR</div>
       <GoogleLogin
         clientId={process.env.REACT_APP_GOOGLE_LOGIN_CLIENTID}
         onSuccess={onSignInSuccess}

@@ -5,25 +5,21 @@ import {
   SmallCalendar,
   FavoriteCertificate,
   Todo,
+  Loading,
 } from "../components";
 import { useSelector, useDispatch } from "react-redux";
 import { needSigningIn } from "../actions";
 import "../layouts/App/App.css";
 import useSWR from "swr";
 import fetcher from "../utils/fetcher";
-
 const MyPage = () => {
+  const dispatch = useDispatch();
   const isSignedIn = useSelector((state) => state.auth.isSignedIn);
   const userObj = useSelector((state) => state.auth.userObj);
-  const { data: myData } = useSWR(
-    `user/Detail/${userObj.profileObj.email}`,
+  const { data: myData, revalidate: revalidateUser } = useSWR(
+    `/api/user/${userObj.profileObj.email}`,
     fetcher
   );
-  const { data: certData } = useSWR(
-    `certificate/361`, // 정보처리기사
-    fetcher
-  );
-  const dispatch = useDispatch();
 
   useEffect(() => {
     !isSignedIn && dispatch(needSigningIn());
@@ -32,16 +28,23 @@ const MyPage = () => {
   return (
     <>
       {isSignedIn ? (
-        <div className="mypage-container">
-          <div className="mypage-container-upper">
-            <Profile userObj={userObj} myData={myData} />
-            <SmallCalendar certData={certData}/>
+        myData ? (
+          <div className="mypage-container">
+            <div className="mypage-container-upper">
+              <Profile userObj={userObj} myData={myData} />
+              <SmallCalendar myData={myData} />
+            </div>
+            <div className="mypage-container-downer">
+              <FavoriteCertificate
+                myData={myData}
+                revalidateUser={revalidateUser}
+              />
+              <Todo />
+            </div>
           </div>
-          <div className="mypage-container-downer">
-            <FavoriteCertificate myData={myData} />
-            <Todo />
-          </div>
-        </div>
+        ) : (
+          <Loading />
+        )
       ) : (
         <Redirect to="/" />
       )}

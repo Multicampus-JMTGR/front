@@ -21,9 +21,16 @@
 }
 
 .favorite-certificate-list {
-  @include flex-div(column);
+  @include flex-div-justify(row, space-between);
   @include border-style(0px);
   background-color: $theme-color-2;
   width: 95%;
   margin: 1vh auto;
+  a {
+    margin: auto;
+  }
+  button {
+    @include border-style(0px);
+    background-color: $theme-color-1;
+  }
 }

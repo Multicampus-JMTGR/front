@@ -24,7 +24,7 @@ const Header = () => {
       </span>
       <Link to={`${deployUrl}/`}>Home</Link>
       <Link to={`${deployUrl}/calendar`}>Calendar</Link>
-      <Link to={`${deployUrl}/detail`}>Detail</Link>
+      {/* <Link to={`${deployUrl}/detail`}>Detail</Link> */}
       {isSignedIn ? (
         <>
           <Link to={`${deployUrl}/mypage`}>My page</Link>

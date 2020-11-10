@@ -4,99 +4,136 @@ import moment from "moment";
 import "react-calendar/dist/Calendar.css";
 import "./SmallCalendar.css";
 import Popup from "reactjs-popup";
+import {
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+  FormControl,
+  FormLabel,
+} from "@material-ui/core";
 
-const mark = [
-  { date: "11-11-2020", color: "#93fa16", desc: "This is desc1" },
-  { date: "12-11-2020", color: "grey", desc: "This is desc2" },
-  { date: "13-11-2020", color: "#16ebfa", desc: "This is desc3" },
-  { date: "19-11-2020", color: "#fa1644", desc: "This is desc4" },
-];
-const SmallCalendar = ({ certData }) => {
+const bulletColor = {
+  reg_start: "#07fc03",
+  test_start: "#07fc03",
+  reg_end: "#fcba03",
+  test_end: "#fcba03",
+  result: "#e85a4f",
+};
+const eventType = {
+  reg_start: "접수 시작",
+  test_start: "시험날",
+  reg_end: "접수 마감",
+  test_end: "시험날",
+  result: "결과 발표",
+};
+const SmallCalendar = ({ myData }) => {
   const [value, setValue] = useState(new Date());
-  const [regStartDates, setRegStartDates] = useState([]);
-  const [regEndDates, setRegEndDates] = useState([]);
-  const [testStartDates, setTestStartDates] = useState([]);
-  const [testEndDates, setTestEndDates] = useState([]);
-  const [resultDates, setResultDates] = useState([]);
   const [dates, setDates] = useState([]);
+  const [curCertId, setCurCertId] = useState(myData.cert_likes[0]?.cert_id);
+  const [certData, setCertData] = useState(myData.cert_likes[0]?.cert_schedule);
+  //   const { data: certData} = useSWR(`/api/certificate`)
   useEffect(() => {
-    let rsd = [],
-      red = [],
-      tsd = [],
-      ted = [],
-      rd = [],
-      ds = [];
+    let ds = [];
     if (certData) {
-      certData.cert_schedule.forEach((e) => {
+      certData.cert_schedule?.forEach((e) => {
         ds.push({
-          cert_name: certData.name,
+          cert_info: certData,
+          test_type: e.test_type,
           type: "reg_start",
           d: e.reg_start_date,
         });
         ds.push({
-          cert_name: certData.name,
+          cert_info: certData,
+          test_type: e.test_type,
           type: "reg_end",
           d: e.reg_end_date,
         });
         ds.push({
-          cert_name: certData.name,
+          cert_info: certData,
+          test_type: e.test_type,
           type: "test_start",
           d: e.test_start_date,
         });
         ds.push({
-          cert_name: certData.name,
+          cert_info: certData,
+          test_type: e.test_type,
           type: "test_end",
           d: e.test_end_date,
         });
         ds.push({
-          cert_name: certData.name,
+          cert_info: certData,
+          test_type: e.test_type,
           type: "result",
           d: e.result_date_1,
         });
         ds.push({
-          cert_name: certData.name,
+          cert_info: certData,
+          test_type: e.test_type,
           type: "result",
           d: e.resutl_date_2,
         });
-        rsd.push(e.reg_start_date);
-        red.push(e.reg_end_date);
-        tsd.push(e.test_start_date);
-        ted.push(e.test_end_date);
-        rd.push(e.result_date_1);
-        rd.push(e.result_date_2);
       });
-      setRegStartDates(rsd);
-      setRegEndDates(red);
-      setTestStartDates(tsd);
-      setTestEndDates(ted);
-      setResultDates(rd);
       setDates(ds);
-      console.log(ds);
     }
-  }, []);
+    console.log(myData);
+  }, [curCertId]);
 
   const tileContent = ({ activeStartDate, date, view }) => {
-    let event = [];
-    // console.log(dates);
-    dates.find((d) => {
-      d.d == moment(date).format("YYYY-MM-DD") && event.push(d);
-    });
-    return event.length ? (
+    let event = dates.find((d) => d.d == moment(date).format("YYYY-MM-DD"));
+    return event ? (
       <Popup
         contentStyle={{
           borderRadius: ".3rem",
           width: "auto",
         }}
-        trigger={<div className={event[event.length - 1].type}>●</div>}
+        trigger={<div style={{ color: bulletColor[event.type] }}>●</div>}
         position="top end"
         modal
       >
-        <div>{certData.name}</div>
-        {event.map((e) => (
-          <div>{e.type}</div>
-        ))}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            margin: ".5rem 1rem",
+          }}
+        >
+          <div style={{ fontSize: "2rem" }}>
+            {moment(date).format("YYYY/ MM / DD")}
+          </div>
+          <div style={{ fontSize: "1.2rem" }}>
+            <span>{event.cert_info.name}</span>{" "}
+            <span style={{ color: "#e85a4f" }}>
+              {event.test_type} {eventType[event.type]}
+            </span>
+          </div>
+          <div>
+            <div style={{ marginTop: "1rem" }}>
+              주관 : {event.cert_info.department}
+            </div>
+            {event.test_type === "필기" ? (
+              <>
+                <div>필기 접수 가격 : {event.cert_info.cost} 원</div>
+                <div>필기 합격률 : {event.cert_info.pass_percent}%</div>
+              </>
+            ) : (
+              <>
+                <div>실기 접수 가격 : {event.cert_info.cost_sil} 원</div>
+                <div>실기 합격률 : {event.cert_info.pass_percent_sil}%</div>
+              </>
+            )}
+          </div>
+        </div>
       </Popup>
     ) : null;
+  };
+  const onClickCheck = (e) => {
+    const {
+      target: { value },
+    } = e;
+    setCurCertId(value);
+    let cd = myData.cert_likes.find((e) => e.cert_id == value);
+    setCertData(cd);
   };
   return (
     <div className="small-calendar-container">
@@ -104,21 +141,44 @@ const SmallCalendar = ({ certData }) => {
         className="small-calendar"
         value={value}
         calendarType={"US"}
-        tileClassName={({ date }) => {
-          if (mark.find((m) => m.date === moment(date).format("DD-MM-YYYY"))) {
-            return "highlight";
-          }
-        }}
         tileContent={tileContent}
       />
-      {/* <ul>
-        {certData &&
-          mark.map((e, i) => (
-            <li key={i}>
-              <span style={{ color: e.color }}>●</span> <span>{e.desc}</span>
-            </li>
-          ))}
-      </ul> */}
+      {myData.cert_likes.length ? (
+        <div style={{ marginTop: "3vh" }}>
+          <FormControl component="fieldset">
+            <FormLabel
+              component="legend"
+              style={{
+                color: "#e85a4f",
+                fontSize: "1.3rem",
+                margin: "2vh",
+                fontWeight: "bold",
+              }}
+            >
+              달력에 일정을 표시할 자격증 선택
+            </FormLabel>
+            <RadioGroup aria-label="cert" value={value} onChange={onClickCheck}>
+              {myData?.cert_likes.map((e, i) => (
+                <FormControlLabel
+                  control={
+                    <Radio
+                      checked={e.cert_id == curCertId ? true : false}
+                      style={{ color: "#e98074" }}
+                    />
+                  }
+                  label={e.name}
+                  value={e.cert_id}
+                  style={{
+                    color: "#8e8d8a",
+                    fontWeight: "bold",
+                    margin: "-1vh",
+                  }}
+                />
+              ))}
+            </RadioGroup>
+          </FormControl>
+        </div>
+      ) : null}
     </div>
   );
 };

@@ -1,4 +1,8 @@
-@mixin flex-div($direction, $justify, $align: center) {
+@mixin flex-div($direction) {
+  display: flex;
+  flex-direction: $direction;
+}
+@mixin flex-div-align-justify($direction, $justify, $align) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;

@@ -1,9 +1,11 @@
 @import "../../css//Flex.scss";
 @import "../../css/FontAndColor.scss";
-@import url("https://fonts.googleapis.com/css2?family=Amaranth&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amaranth&family=Nanum+Gothic:wght@700&display=swap");
+@import "../../css/ComponentBorder.scss";
+
 html {
   height: 100%;
-  font-family: "Amaranth", sans-serif;
+  font-family: "Amaranth", "Nanum Gothic", sans-serif;
 }
 body {
   background: no-repeat;
@@ -38,7 +40,31 @@ ul {
   width: 80%;
 }
 .mypage-container-downer {
-  @include flex-div-align(row, flex-end);
+  @include flex-div-align-justify(row, flex-end, flex-start);
   margin: 5vh auto;
   width: 90%;
+}
+.certificate-detail-container {
+  @include flex-div-align(column, center);
+  width: 90vw;
+  height: 100vh;
+  margin: auto;
+  background-color: $theme-color-1;
+}
+.certificate-details {
+  color: $theme-color-3;
+}
+.certificate-values {
+  color: $theme-color-4;
+}
+.certificate-name {
+  margin-top: 10vh;
+  color: $theme-color-4;
+}
+.certificate-detail-inner-container {
+  @include border-style(0px);
+  //   width: 80%;
+  //   height: 30%;
+  //   margin: auto;
+  //   background-color: $theme-color-2;
 }

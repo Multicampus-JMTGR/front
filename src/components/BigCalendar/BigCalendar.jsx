@@ -14,6 +14,7 @@ const popUpDetail = ({ event }) => {
     <Popup
       contentStyle={{
         borderRadius: ".3rem",
+        width: "auto",
       }}
       trigger={<div>{event.title}</div>}
       position="bottom center"
@@ -142,7 +143,7 @@ const BigCalendar = () => {
         }}
         localizer={localizer}
         style={
-          (style, { width: "80vw", height: "90vh", backgroundColor: "#eae7dc" })
+          (style, { width: "100%", height: "90vh", backgroundColor: "#eae7dc" })
         }
         popup={true}
       />
