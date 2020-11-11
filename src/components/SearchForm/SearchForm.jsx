@@ -60,7 +60,7 @@ const SearchForm = () => {
           <SearchIcon />
         </IconButton>
         <InputBase
-          placeholder="Search.."
+          placeholder="  Search.."
           type="text"
           value={searchCertification}
           onChange={onChange}

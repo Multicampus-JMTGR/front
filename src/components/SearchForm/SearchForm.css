@@ -9,9 +9,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .searchform-container ul {
@@ -22,9 +19,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   width: 50vw;
   margin: 1vh auto;
   -webkit-box-pack: center;
@@ -43,7 +37,7 @@
 
 .searchform-paper {
   background-color: #eae7dc;
-  width: 30vw;
+  width: 45vw;
 }
 
 .searchform-paper:focus {

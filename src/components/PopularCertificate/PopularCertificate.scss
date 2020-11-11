@@ -1,0 +1,41 @@
+@import "../../css/FontAndColor.scss";
+@import "../../css/Flex.scss";
+@import "../../css/ComponentBorder.scss";
+.pop-cert-container {
+  @include flex-div-align(column, center);
+  margin-top: 5vh;
+  .pop-cert-title {
+    color: $theme-color-5;
+    margin: 1vh auto;
+    font-size: 1.2rem;
+  }
+}
+.pop-cert-roller {
+  background-color: $theme-color-3;
+  color: $theme-color-1;
+  text-align: center;
+  width: 30vw;
+  @include flex-div-align(row, flex-start);
+  @include border-style(0px);
+  ul {
+    width: 100%;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.rollingUl {
+  height: 30px;
+}
+.rollingLi {
+  width: 100%;
+  padding: 5px 0px;
+  position: absolute;
+  top: 100%;
+}
+
+.unRollingLi {
+  padding: 15px 0px;
+}

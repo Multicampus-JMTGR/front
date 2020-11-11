@@ -23,7 +23,7 @@
 .favorite-certificate-list {
   @include flex-div-justify(row, space-between);
   @include border-style(0px);
-  background-color: $theme-color-2;
+  background-color: $theme-color-1;
   width: 95%;
   margin: 1vh auto;
   a {

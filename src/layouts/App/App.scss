@@ -68,3 +68,8 @@ ul {
   //   margin: auto;
   //   background-color: $theme-color-2;
 }
+.pop-certs {
+  @include flex-div-justify(row, space-between);
+  width: 70%;
+  margin: auto;
+}

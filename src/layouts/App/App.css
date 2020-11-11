@@ -118,4 +118,19 @@ ul {
   border-radius: 2rem;
   border: 0px solid #8e8d8a;
 }
+
+.pop-certs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 70%;
+  margin: auto;
+}
 /*# sourceMappingURL=App.css.map */

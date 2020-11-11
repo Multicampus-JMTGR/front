@@ -1,4 +1,3 @@
-// export { default as App } from '../layouts/App';
 export { default as Auth } from "./Auth/Auth";
 export { default as BigCalendar } from "./BigCalendar/BigCalendar";
 export { default as SearchForm } from "./SearchForm/SearchForm";
@@ -9,3 +8,4 @@ export { default as FavoriteCertificate } from "./FavoriteCertificate/FavoriteCe
 export { default as Todo } from "./Todo/Todo";
 export { default as Loading } from "./Loading/Loading";
 export { default as PopUpLoading } from "./Loading/PopUpLoading";
+export { default as PopularCertificate } from "./PopularCertificate/PopularCertificate";

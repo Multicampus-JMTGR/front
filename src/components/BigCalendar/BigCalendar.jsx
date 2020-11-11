@@ -36,7 +36,6 @@ const popUpDetail = ({ event }) => {
 };
 
 const CustomToolbar = (toolbar) => {
-  console.log(toolbar);
   const goToDayView = () => {
     toolbar.onView("day");
   };

@@ -1,0 +1,62 @@
+.pop-cert-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 5vh;
+}
+
+.pop-cert-container .pop-cert-title {
+  color: #e85a4f;
+  margin: 1vh auto;
+  font-size: 1.2rem;
+}
+
+.pop-cert-roller {
+  background-color: #8e8d8a;
+  color: #eae7dc;
+  text-align: center;
+  width: 30vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  border-radius: 2rem;
+  border: 0px solid #8e8d8a;
+}
+
+.pop-cert-roller ul {
+  width: 100%;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rollingUl {
+  height: 30px;
+}
+
+.rollingLi {
+  width: 100%;
+  padding: 5px 0px;
+  position: absolute;
+  top: 100%;
+}
+
+.unRollingLi {
+  padding: 15px 0px;
+}
+/*# sourceMappingURL=PopularCertificate.css.map */
