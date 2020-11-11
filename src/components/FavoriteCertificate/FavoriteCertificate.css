@@ -40,6 +40,8 @@
 }
 
 .favorite-certificate-list a {
+  font-size: 1rem;
+  color: #8e8d8a;
   margin: auto;
 }
 

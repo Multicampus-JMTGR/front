@@ -4,11 +4,12 @@ import { useSelector } from "react-redux";
 import useSWR from "swr";
 import fetcher from "../utils/fetcher";
 import "../layouts/App/App.css";
-import { Loading } from "../components";
+import { Loading, PopUpLoading } from "../components";
 import axios from "axios";
 
 const Detail = () => {
   const [alreadyLike, setAlreadyLike] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { detail: certId } = useParams();
   const { data: detailData } = useSWR(`/api/certificate/${certId}`, fetcher);
   const userObj = useSelector((state) => state.auth.userObj);
@@ -17,20 +18,20 @@ const Detail = () => {
     fetcher
   );
   useEffect(() => {
-    myData?.cert_likes.forEach((e) => {
-      if (e.cert_id == certId) {
-        setAlreadyLike(true);
-      }
-    });
+    let isLike = myData?.cert_likes.find((e) => e.cert_id == certId);
+    setAlreadyLike(isLike);
   }, []);
   const onClickLike = (event) => {
     const {
       target: {},
     } = event;
+    setIsLoading(true);
     axios
       .post(`/api/cert_like/${userObj.profileObj.email}/${certId}`)
       .then((res) => {
         revalidateUser();
+        setIsLoading(false);
+        setAlreadyLike(true);
         console.log(res);
       })
       .catch((e) => console.log(e));
@@ -44,6 +45,7 @@ const Detail = () => {
         cert_id: certId,
       }
    */
+  if (isLoading) return <PopUpLoading isLoading={isLoading} />;
   return (
     <>
       {detailData ? (

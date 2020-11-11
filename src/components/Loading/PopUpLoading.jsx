@@ -6,11 +6,13 @@ const PopUpLoading = ({ isLoading }) => {
     <Popup
       contentStyle={{
         width: "auto",
+        background: "none",
+        border: "none",
       }}
       open={isLoading}
       position="bottom center"
     >
-      <CircularProgress />
+      <CircularProgress color="secondary" />
     </Popup>
   );
 };
