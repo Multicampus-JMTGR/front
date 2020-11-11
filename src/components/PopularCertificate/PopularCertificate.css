@@ -20,7 +20,6 @@
 
 .pop-cert-roller {
   background-color: #8e8d8a;
-  color: #eae7dc;
   text-align: center;
   width: 30vw;
   display: -webkit-box;
@@ -43,6 +42,10 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.pop-cert-roller a {
+  color: #eae7dc;
 }
 
 .rollingUl {

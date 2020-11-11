@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const CertificateDetail = ({ certificateData, index, showAll, engTitle }) => {
   return (
     <li
@@ -7,29 +7,12 @@ const CertificateDetail = ({ certificateData, index, showAll, engTitle }) => {
       id={`${engTitle}-${index}`}
       className={showAll ? "unRollingLi" : "rollingLi"}
     >
-      <span>{certificateData.name}</span>
+      <Link to={`/detail/${certificateData.cert_id}`}>
+        {index + 1}
+        {". "}
+        {certificateData.name}
+      </Link>
     </li>
   );
 };
 export default CertificateDetail;
-/**
- * 
- *         <div className={styles.container}>
-            { 
-                <ul className={ showAll ? styles.unRollingUl : styles.rollingUl}>
-                {
-                bannerData.map((bd,index)=>(
-                    <li key={`banner-${index}`} id={`banner${index}`} className={showAll ? styles.unRollingLi : styles.rollingLi}>
-                        <a href={`https:/www.tpirates.com/${bd.permalink}`}>
-                            <Typography component='span'>{bd.label}</Typography>
-                            <Typography component='span' className={styles.price}>{bd.price}</Typography>
-                            <Typography component='span' >{bd.comment}</Typography>
-                        </a>
-                    </li>
-                ))
-                }
-                </ul>
-            }
-            <IconButton onClick={onClick} className={showAll ? classes.showAll : classes.showRolling}><ExpandMoreIcon style={{color:"white"}} fontSize="large" /></IconButton>
-            </div>
- */

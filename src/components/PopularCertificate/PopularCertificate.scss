@@ -12,7 +12,6 @@
 }
 .pop-cert-roller {
   background-color: $theme-color-3;
-  color: $theme-color-1;
   text-align: center;
   width: 30vw;
   @include flex-div-align(row, flex-start);
@@ -23,6 +22,9 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+  a {
+    color: $theme-color-1;
   }
 }
 

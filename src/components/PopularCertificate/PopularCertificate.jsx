@@ -23,47 +23,51 @@ const useStyles = makeStyles((theme) => ({
 const PopularCertificate = ({ popularCertificates, title, engTitle }) => {
   const classes = useStyles();
   const [showAll, setShowAll] = useState(false);
-  //   const [timer, setTimer] = useState(null);
-  //   const [count, setCount] = useState(null);
+  const [count, setCount] = useState(0);
+  //   const [timer, setTimer] = useState(0);
   const bannerCount = popularCertificates?.length;
   let timer;
-  let cnt = 0;
   useEffect(() => {
     if (showAll === false) {
-      modifyStyles(cnt); // for initial state
+      modifyStyles(count); // for initial state
       timer = setInterval(() => {
-        cnt++;
-        if (cnt === bannerCount) {
-          cnt = 0;
+        let nextCount = count + 1;
+        if (nextCount === bannerCount) {
+          nextCount = 0;
         }
-        modifyStyles(cnt);
-      }, 2000);
+        setCount(nextCount);
+        // modifyStyles(nextCount);
+        modifyStyles();
+      }, 2500);
       //   setTimer(timer);
       return () => {
         clearInterval(timer);
+        // setTimer(null);
       };
     } else {
       clearInterval(timer);
+      //   setTimer(null);
     }
   });
-  const modifyStyles = (cnt) => {
-    let cur = document.getElementById(`${engTitle}-${cnt}`);
+  const modifyStyles = () => {
+    let cur = document.getElementById(`${engTitle}-${count}`);
     let prev =
-      cnt === 0
+      count === 0
         ? document.getElementById(`${engTitle}-${bannerCount - 1}`)
-        : document.getElementById(`${engTitle}-${cnt - 1}`);
+        : document.getElementById(`${engTitle}-${count - 1}`);
     let next =
-      cnt === bannerCount - 1
+      count === bannerCount - 1
         ? document.getElementById(`${engTitle}-0`)
-        : document.getElementById(`${engTitle}-${cnt + 1}`);
+        : document.getElementById(`${engTitle}-${count + 1}`);
     if (cur && prev && next) {
       cur.style.top = "0%";
       cur.style.transition = "top 1s ease-in-out";
       prev.style.top = "-150%";
-      next.style.top = "100%";
+      next.style.top = "150%";
       next.style.transition = "none";
     }
   };
+
   const onClick = () => {
     setShowAll(!showAll);
   };
