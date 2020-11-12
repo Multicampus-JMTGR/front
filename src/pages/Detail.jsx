@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import useSWR from "swr";
-import fetcher from "../utils/fetcher";
-import "../layouts/App/App.css";
-import { Loading, PopUpLoading } from "../components";
+import fetcher from "utils/fetcher";
+import "layouts/App/App.css";
+import { Loading, PopUpLoading, SearchForm } from "components";
 import axios from "axios";
 
 const Detail = () => {
@@ -48,6 +48,7 @@ const Detail = () => {
   if (isLoading) return <PopUpLoading isLoading={isLoading} />;
   return (
     <>
+      <SearchForm />
       {detailData ? (
         <div className="certificate-detail-container">
           <h1 className="certificate-name">{detailData.name}</h1>

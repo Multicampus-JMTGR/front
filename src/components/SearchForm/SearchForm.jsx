@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Loading } from "../../components";
-import { Paper, InputBase, IconButton } from "@material-ui/core";
+import {
+  Paper,
+  InputBase,
+  IconButton,
+  CircularProgress,
+} from "@material-ui/core";
 import useSWR from "swr";
-import fetcher from "../../utils/fetcher";
+import fetcher from "utils/fetcher";
 import SearchIcon from "@material-ui/icons/Search";
-import data from "../../data/testData.json";
 import "./SearchForm.css";
-
-var testSet = data.testSet;
 
 const SearchForm = () => {
   const [isInitial, setIsInitial] = useState(true);
@@ -18,6 +19,15 @@ const SearchForm = () => {
     `api/certificate/CertificatesFilter/?keyword=${searchCertification}`,
     fetcher
   );
+  useEffect(() => {
+    if (searchCertification === "") {
+      setIsInitial(true);
+    }
+    // } else {
+    //   setCertificateResults(queryData);
+    //   console.log(certificateResults);
+    // }
+  }, []);
   const onChange = (event) => {
     setIsInitial(false);
     const {
@@ -25,34 +35,33 @@ const SearchForm = () => {
     } = event;
     setSearchCertification(value.toLowerCase());
   };
-  useEffect(() => {
-    setCertificateResults(queryData);
-    // if (searchCertification !== "") {
-    //   const results = testSet.filter((test) =>
-    //     test.title.toLowerCase().includes(searchCertification)
-    //   );
-    //   setIsInitial(false);
-    //   setCertificateResults(results);
-    // }
-    // else if (setSearchCertification === "" && !isInitial) {
-    //     console.log('here')
-    //   setCertificateResults([]);
-    // }
-  }, [searchCertification]);
 
   const onSubmit = (event) => {
     event.preventDefault();
     // console.log(searchCertification);
   };
-  //   const onClickCetification = (event) => {
-  //     const {
-  //       target: { textContent },
-  //     } = event;
-  //     // data.testSet.forEach((test) => {
-  //     //   if (test.title === textContent) test.isLike = !test.isLike;
-  //     // });
-  //     <Redirect to={`/detail/${textContent}`} />;
-  //   };
+  const onClickCert = (event) => {
+    const {
+      target: { id, textContent },
+    } = event;
+    /** set log to session storage */
+    let logs = sessionStorage.getItem("search-log");
+    if (logs) {
+      sessionStorage.removeItem("search-log");
+      let jsonLogs = JSON.parse(logs);
+      if (!jsonLogs.log.find((e) => e.certId === id)) {
+        jsonLogs.log.push({ name: textContent, certId: id });
+      }
+      sessionStorage.setItem("search-log", JSON.stringify(jsonLogs));
+    } else {
+      sessionStorage.setItem(
+        "search-log",
+        JSON.stringify({
+          log: [{ name: textContent, certId: id }],
+        })
+      );
+    }
+  };
   return (
     <div className="searchform-container">
       <Paper component="form" onSubmit={onSubmit} className="searchform-paper">
@@ -75,6 +84,8 @@ const SearchForm = () => {
                   <Link
                     style={{ fontSize: "1.2rem", margin: ".2rem" }}
                     to={`/detail/${qd.cert_id}`}
+                    id={qd.cert_id}
+                    onClick={onClickCert}
                   >
                     {qd.name}
                   </Link>
@@ -84,7 +95,7 @@ const SearchForm = () => {
               <li>No result</li>
             )
           ) : (
-            <Loading />
+            <CircularProgress color="secondary" />
           )}
         </ul>
       )}

@@ -1,5 +1,5 @@
-@import "../../css/Flex.scss";
-@import "../../css/FontAndColor.scss";
+@import "css/Flex.scss";
+@import "css/FontAndColor.scss";
 .toolbar-container {
   @include flex-div(row);
 }

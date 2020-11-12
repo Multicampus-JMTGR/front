@@ -4,7 +4,7 @@ import Popup from "reactjs-popup";
 import GoogleLogin from "react-google-login";
 // import GitHubLogin from "react-github-login";
 import "reactjs-popup/dist/index.css";
-import { signIn } from "../../actions";
+import { signIn } from "actions";
 import { useDispatch, useSelector } from "react-redux";
 import "./Auth.css";
 

@@ -8,10 +8,10 @@ import {
   Loading,
 } from "../components";
 import { useSelector, useDispatch } from "react-redux";
-import { needSigningIn } from "../actions";
-import "../layouts/App/App.css";
+import { needSigningIn } from "actions";
+import "layouts/App/App.css";
 import useSWR from "swr";
-import fetcher from "../utils/fetcher";
+import fetcher from "utils/fetcher";
 const MyPage = () => {
   const dispatch = useDispatch();
   const isSignedIn = useSelector((state) => state.auth.isSignedIn);

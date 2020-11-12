@@ -1,7 +1,7 @@
-@import "../../css//Flex.scss";
-@import "../../css/FontAndColor.scss";
+@import "css//Flex.scss";
+@import "css/FontAndColor.scss";
 @import url("https://fonts.googleapis.com/css2?family=Amaranth&family=Nanum+Gothic:wght@700&display=swap");
-@import "../../css/ComponentBorder.scss";
+@import "css/ComponentBorder.scss";
 
 html {
   height: 100%;
@@ -10,7 +10,7 @@ html {
 body {
   background: no-repeat;
   background-color: $theme-color-1;
-  background-image: url("../../images/bgimage.png");
+  background-image: url("images/bgimage.png");
   background-size: 70vw;
   background-position: center;
   height: 100%;

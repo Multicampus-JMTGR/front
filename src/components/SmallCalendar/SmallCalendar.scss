@@ -1,6 +1,6 @@
-@import "../../css/ComponentBorder.scss";
-@import "../../css/FontAndColor.scss";
-@import "../../css/Flex.scss";
+@import "css/ComponentBorder.scss";
+@import "css/FontAndColor.scss";
+@import "css/Flex.scss";
 
 .small-calendar-container {
   @include flex-div(column);
