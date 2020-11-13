@@ -8,3 +8,9 @@ export const needSigningIn = () => ({
 export const signOut = () => ({
   type: "SIGN_OUT",
 });
+export const needSigningUp = () => ({
+  type: "NEED_SIGN_UP",
+});
+export const completeSigningUp = () => ({
+  type: "COMPLETE_SIGN_UP",
+});

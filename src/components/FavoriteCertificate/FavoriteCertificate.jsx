@@ -14,7 +14,10 @@ const FavoriteCertificate = ({ myData, revalidateUser }) => {
     } = e;
     setIsLoading(true);
     axios
-      .post(`/api/cert_like/${myData.email}/${value}`)
+      .post(`/api/cert_like/${myData.email}/${value}`, {
+        email: myData.email,
+        cert_id: value,
+      })
       .then((res) => {
         revalidateUser();
         setIsLoading(false);

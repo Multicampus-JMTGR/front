@@ -6,7 +6,7 @@ import {
   FavoriteCertificate,
   Todo,
   Loading,
-} from "../components";
+} from "components";
 import { useSelector, useDispatch } from "react-redux";
 import { needSigningIn } from "actions";
 import "layouts/App/App.css";
@@ -50,7 +50,6 @@ const MyPage = () => {
       )}
     </>
   );
-  // return <Profile />
 };
 
 export default MyPage;

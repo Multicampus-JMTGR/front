@@ -7,12 +7,18 @@
   @include flex-div-justify(column, center);
   ul {
     @include flex-div(column);
-    width: 50vw;
+    width: 100%;
     margin: 1vh auto;
     justify-content: center;
     align-items: center;
     background-color: white;
     border-radius: 0.6rem;
+    span {
+      color: $theme-color-3;
+      font-size: 0.8rem;
+      border-bottom: 1px solid;
+      margin: 1vh auto;
+    }
   }
   li {
     width: 100%;

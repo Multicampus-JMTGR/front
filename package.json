@@ -33,7 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "aws s3 sync ./build s3://mc-second-project-fe"
   },
   "eslintConfig": {
     "extends": [
@@ -53,6 +53,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8000",
+  "proxy": "https://7oxpckq4u7.execute-api.us-east-1.amazonaws.com/jmtgr",
   "secure": false
 }

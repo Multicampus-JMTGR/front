@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Paper,
@@ -6,6 +6,7 @@ import {
   IconButton,
   CircularProgress,
 } from "@material-ui/core";
+import { SearchLogs } from "components";
 import useSWR from "swr";
 import fetcher from "utils/fetcher";
 import SearchIcon from "@material-ui/icons/Search";
@@ -13,32 +14,34 @@ import "./SearchForm.css";
 
 const SearchForm = () => {
   const [isInitial, setIsInitial] = useState(true);
+  const [showLogs, setShowLogs] = useState(false);
   const [searchCertification, setSearchCertification] = useState("");
-  const [certificateResults, setCertificateResults] = useState([]);
+
   const { data: queryData } = useSWR(
-    `api/certificate/CertificatesFilter/?keyword=${searchCertification}`,
+    `api/certificate/filter/?keyword=${searchCertification}`,
     fetcher
   );
-  useEffect(() => {
-    if (searchCertification === "") {
-      setIsInitial(true);
-    }
-    // } else {
-    //   setCertificateResults(queryData);
-    //   console.log(certificateResults);
-    // }
-  }, []);
+
   const onChange = (event) => {
     setIsInitial(false);
     const {
       target: { value },
     } = event;
+    if (value === "") setIsInitial(true);
     setSearchCertification(value.toLowerCase());
   };
 
   const onSubmit = (event) => {
     event.preventDefault();
     // console.log(searchCertification);
+  };
+  const onFocus = (e) => {
+    isInitial ? setShowLogs(true) : setShowLogs(false);
+  };
+  const onBlur = (e) => {
+    setTimeout(() => {
+      setShowLogs(false);
+    }, 100);
   };
   const onClickCert = (event) => {
     const {
@@ -73,14 +76,16 @@ const SearchForm = () => {
           type="text"
           value={searchCertification}
           onChange={onChange}
+          onFocus={onFocus}
+          onBlur={onBlur}
         />
       </Paper>
-      {!isInitial && (
+      {!isInitial ? (
         <ul>
           {queryData ? (
             queryData.length ? (
               queryData.map((qd, index) => (
-                <li key={index}>
+                <li key={`search-${index}`}>
                   <Link
                     style={{ fontSize: "1.2rem", margin: ".2rem" }}
                     to={`/detail/${qd.cert_id}`}
@@ -98,6 +103,8 @@ const SearchForm = () => {
             <CircularProgress color="secondary" />
           )}
         </ul>
+      ) : (
+        showLogs && <SearchLogs />
       )}
     </div>
   );

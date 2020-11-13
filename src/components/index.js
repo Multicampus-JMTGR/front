@@ -9,3 +9,4 @@ export { default as Todo } from "./Todo/Todo";
 export { default as Loading } from "./Loading/Loading";
 export { default as PopUpLoading } from "./Loading/PopUpLoading";
 export { default as PopularCertificate } from "./PopularCertificate/PopularCertificate";
+export { default as SearchLogs } from "./SearchLogs/SearchLogs";

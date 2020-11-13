@@ -2,20 +2,14 @@ import React from "react";
 import "reactjs-popup/dist/index.css";
 import Popup from "reactjs-popup";
 import GoogleLogin from "react-google-login";
-// import GitHubLogin from "react-github-login";
+import { useSelector } from "react-redux";
 import "reactjs-popup/dist/index.css";
-import { signIn } from "actions";
-import { useDispatch, useSelector } from "react-redux";
 import "./Auth.css";
+// import GitHubLogin from "react-github-login";
 
-const Auth = () => {
-  const dispatch = useDispatch();
+const Auth = ({ onSignInSuccess }) => {
   const needSignIn = useSelector((state) => state.auth.needSignIn);
 
-  const onSignInSuccess = (res) => {
-    dispatch(signIn(res));
-    localStorage.setItem("userInfo", JSON.stringify(res));
-  };
   return (
     <Popup
       open={needSignIn}

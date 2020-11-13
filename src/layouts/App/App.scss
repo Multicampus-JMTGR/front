@@ -1,7 +1,7 @@
-@import "css//Flex.scss";
-@import "css/FontAndColor.scss";
+@import "../../css/Flex.scss";
+@import "../../css/FontAndColor.scss";
+@import "../../css/ComponentBorder.scss";
 @import url("https://fonts.googleapis.com/css2?family=Amaranth&family=Nanum+Gothic:wght@700&display=swap");
-@import "css/ComponentBorder.scss";
 
 html {
   height: 100%;
@@ -51,14 +51,40 @@ ul {
   margin: auto;
   background-color: $theme-color-1;
 }
+.signup-container {
+  @include flex-div-align(column, center);
+  width: 90vw;
+  height: 100vh;
+  margin: auto;
+  background-color: $theme-color-1;
+  h1 {
+    color: $theme-color-5;
+  }
+  .signup-inner-container {
+    @include flex-div-align(column, center);
+  }
+}
+.certificate-detail-name-like {
+  margin-top: 10vh;
+  @include flex-div-align-justify(row, center, center);
+  span {
+    margin: 5vh 1vw;
+    font-size: 2rem;
+    color: $theme-color-4;
+  }
+  svg {
+    margin: 5vh 1vw;
+    font-size: 2rem;
+    color: $theme-color-5;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
 .certificate-details {
   color: $theme-color-3;
 }
 .certificate-values {
-  color: $theme-color-4;
-}
-.certificate-name {
-  margin-top: 10vh;
   color: $theme-color-4;
 }
 .certificate-detail-inner-container {

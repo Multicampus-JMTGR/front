@@ -22,7 +22,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 50vw;
+  width: 100%;
   margin: 1vh auto;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -32,6 +32,13 @@
           align-items: center;
   background-color: white;
   border-radius: 0.6rem;
+}
+
+.searchform-container ul span {
+  color: #8e8d8a;
+  font-size: 0.8rem;
+  border-bottom: 1px solid;
+  margin: 1vh auto;
 }
 
 .searchform-container li {
