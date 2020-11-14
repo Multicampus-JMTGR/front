@@ -18,7 +18,7 @@ const SearchForm = () => {
   const [searchCertification, setSearchCertification] = useState("");
 
   const { data: queryData } = useSWR(
-    `api/certificate/filter/?keyword=${searchCertification}`,
+    `/api/certificate/filter/?keyword=${searchCertification}`,
     fetcher
   );
 

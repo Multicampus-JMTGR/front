@@ -12,7 +12,6 @@ const Detail = loadable(() => import("pages/Detail"));
 const MyPage = loadable(() => import("pages/MyPage"));
 const SignUp = loadable(() => import("pages/SignUp"));
 const CalendarPage = loadable(() => import("pages/CalendarPage"));
-const deployUrl = "";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -30,14 +29,11 @@ const App = () => {
         <Header />
         <Switch>
           <>
-            <Route exact path={`${deployUrl}/`} component={Home} />
-            <Route exact path="/">
-              <Redirect to={`${deployUrl}/`} />
-            </Route>
-            <Route path={`${deployUrl}/detail/:detail`} component={Detail} />
-            <Route path={`${deployUrl}/calendar`} component={CalendarPage} />
-            <Route path={`${deployUrl}/mypage`} component={MyPage} />
-            <Route path={`${deployUrl}/signup`} component={SignUp} />
+            <Route exact path={`/`} component={Home} />
+            <Route path={`/detail/:detail`} component={Detail} />
+            <Route path={`/calendar`} component={CalendarPage} />
+            <Route path={`/mypage`} component={MyPage} />
+            <Route path={`/signup`} component={SignUp} />
           </>
         </Switch>
       </div>
