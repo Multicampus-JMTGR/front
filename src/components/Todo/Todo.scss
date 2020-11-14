@@ -14,7 +14,7 @@
     margin: auto;
     padding: 1rem 0.5rem;
   }
-  span {
+  .todo-title {
     font-size: 1.5rem;
     color: $theme-color-5;
     margin-left: calc(40vw - 90%);
@@ -22,9 +22,20 @@
 }
 
 .todo-certificate-list {
-  @include border-style(0px);
-  @include flex-div(column);
-  background-color: white;
-  width: 90%;
-  margin: 1vh auto;
+  @include flex-div-align(row, center);
+  .todo-checkbox {
+    color: $theme-color-1;
+  }
+}
+.todo-certificate-todo-text {
+  div {
+    @include border-style(0px);
+    justify-content: flex-start;
+    background-color: $theme-color-1;
+    color: $theme-color-3;
+    //   text-align: center;
+    width: calc(25vw - 10%);
+    margin: 1vh auto;
+    padding-left: 2vw;
+  }
 }

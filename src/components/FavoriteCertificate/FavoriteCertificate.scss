@@ -24,6 +24,8 @@
   @include flex-div-justify(row, space-between);
   @include border-style(0px);
   background-color: $theme-color-1;
+  color: $theme-color-3;
+  padding-left: 1vw;
   width: 95%;
   margin: 1vh auto;
   a {

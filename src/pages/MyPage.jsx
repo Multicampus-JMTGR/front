@@ -23,7 +23,7 @@ const MyPage = () => {
 
   useEffect(() => {
     !isSignedIn && dispatch(needSigningIn());
-    console.log(myData);
+    // console.log(myData);
   }, []);
 
   return (

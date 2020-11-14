@@ -23,24 +23,39 @@
   padding: 1rem 0.5rem;
 }
 
-.todo-certificate-container span {
+.todo-certificate-container .todo-title {
   font-size: 1.5rem;
   color: #e85a4f;
   margin-left: calc(40vw - 90%);
 }
 
 .todo-certificate-list {
-  border-radius: 2rem;
-  border: 0px solid #8e8d8a;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  background-color: white;
-  width: 90%;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.todo-certificate-list .todo-checkbox {
+  color: #eae7dc;
+}
+
+.todo-certificate-todo-text div {
+  border-radius: 2rem;
+  border: 0px solid #8e8d8a;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  background-color: #eae7dc;
+  color: #8e8d8a;
+  width: calc(25vw - 10%);
   margin: 1vh auto;
+  padding-left: 2vw;
 }
 /*# sourceMappingURL=Todo.css.map */

@@ -35,6 +35,8 @@
   border-radius: 2rem;
   border: 0px solid #8e8d8a;
   background-color: #eae7dc;
+  color: #8e8d8a;
+  padding-left: 1vw;
   width: 95%;
   margin: 1vh auto;
 }

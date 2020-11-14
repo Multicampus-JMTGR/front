@@ -46,7 +46,7 @@ const Detail = () => {
   );
   useEffect(() => {
     let isLike = myData?.cert_likes?.find((e) => e.cert_id == certId);
-    // console.log(detailData[0]);
+    // console.log(detailData);
     setAlreadyLike(isLike);
   }, []);
   const onClickLike = (event) => {
@@ -80,8 +80,8 @@ const Detail = () => {
       {detailData ? (
         <div className="certificate-detail-container">
           <div className="certificate-detail-name-like">
-            <a href={detailData[0].link} target="_blank">
-              {detailData[0].name}
+            <a href={detailData.link} target="_blank">
+              {detailData.name}
             </a>
             {alreadyLike ? (
               <FavoriteIcon onClick={onClickLike} />
@@ -90,11 +90,11 @@ const Detail = () => {
             )}
           </div>
           <div className="certificate-detail-inner-container">
-            <CertDetail category={"주관"} value={detailData[0].department} />
+            <CertDetail category={"주관"} value={detailData.department} />
             {Object.keys(catName).map((key) => (
               <CertDetail
                 category={catName[key]}
-                value={`${detailData[0][key]} ${unit[key]}`}
+                value={`${detailData[key]} ${unit[key]}`}
               />
             ))}
           </div>
