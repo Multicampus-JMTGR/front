@@ -13,6 +13,7 @@ const store = createStore(
     window.__REDUX_DEVTOOLS_EXTENSION__ &&
     window.__REDUX_DEVTOOLS_EXTENSION__()
 );
+axios.defaults.withCredentials = true;
 if (process.env.NODE_ENV !== "development") {
   axios.defaults.baseURL =
     "https://7oxpckq4u7.execute-api.us-east-1.amazonaws.com/jmtgr";

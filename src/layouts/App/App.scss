@@ -67,10 +67,14 @@ ul {
 .certificate-detail-name-like {
   margin-top: 10vh;
   @include flex-div-align-justify(row, center, center);
-  span {
-    margin: 5vh 1vw;
+  a {
+    margin: 0 3vw;
     font-size: 2rem;
-    color: $theme-color-4;
+    color: $theme-color-5;
+    &:hover {
+      cursor: pointer;
+      color: $theme-color-4;
+    }
   }
   svg {
     margin: 5vh 1vw;
@@ -81,11 +85,20 @@ ul {
     }
   }
 }
+.certificat-detail-category-value {
+  @include flex-div-align(row, center);
+  margin: auto;
+  width: 35vw;
+}
 .certificate-details {
   color: $theme-color-3;
+  margin: 1vh 5vw;
+  justify-content: flex-start;
 }
 .certificate-values {
   color: $theme-color-4;
+  margin-left: auto;
+  justify-content: flex-end;
 }
 .certificate-detail-inner-container {
   @include border-style(0px);

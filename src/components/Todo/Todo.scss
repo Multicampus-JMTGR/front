@@ -5,6 +5,7 @@
 .todo-certificate-container {
   width: 40vw;
   margin-left: auto;
+  @include flex-div-justify(column, center);
   .todo-certificate-inner-container {
     @include border-style(0px);
     width: 80%;

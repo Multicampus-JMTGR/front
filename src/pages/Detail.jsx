@@ -9,6 +9,30 @@ import axios from "axios";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 
+const catName = {
+  examinee: "필기 접수인원",
+  examinee_sil: "실기 접수인원",
+  pass_percent: "필기 합격률",
+  pass_percent_sil: "실기 합격률",
+  cost: "필기 접수비",
+  cost_sil: "실기 접수비",
+};
+const unit = {
+  examinee: " 명",
+  examinee_sil: " 명",
+  pass_percent: " %",
+  pass_percent_sil: " %",
+  cost: " 원",
+  cost_sil: " 원",
+};
+const CertDetail = ({ category, value }) => {
+  return (
+    <div className="certificat-detail-category-value">
+      <span className="certificate-details"> {category}</span>
+      <span className="certificate-values">{value}</span>
+    </div>
+  );
+};
 const Detail = () => {
   const [alreadyLike, setAlreadyLike] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -22,6 +46,7 @@ const Detail = () => {
   );
   useEffect(() => {
     let isLike = myData?.cert_likes?.find((e) => e.cert_id == certId);
+    // console.log(detailData[0]);
     setAlreadyLike(isLike);
   }, []);
   const onClickLike = (event) => {
@@ -43,15 +68,7 @@ const Detail = () => {
       })
       .catch((e) => console.log(e));
   };
-  /**
-   * , {
-        email: myData?.email,
-        name: myData?.name,
-        phone_number: myData?.phone_number,
-        interest: myData?.interest,
-        cert_id: certId,
-      }
-   */
+
   if (isLoading) return <PopUpLoading isLoading={isLoading} />;
   if (!isSignedIn) {
     alert("로그인 필요!");
@@ -63,7 +80,9 @@ const Detail = () => {
       {detailData ? (
         <div className="certificate-detail-container">
           <div className="certificate-detail-name-like">
-            <span>{detailData.name}</span>
+            <a href={detailData[0].link} target="_blank">
+              {detailData[0].name}
+            </a>
             {alreadyLike ? (
               <FavoriteIcon onClick={onClickLike} />
             ) : (
@@ -71,34 +90,13 @@ const Detail = () => {
             )}
           </div>
           <div className="certificate-detail-inner-container">
-            <div>
-              <span className="certificate-details"> 주관 : </span>
-              <span className="certificate-values">
-                {detailData.department}
-              </span>
-            </div>
-            <div>
-              <span className="certificate-details">필기 합격률 : </span>
-              <span className="certificate-values">
-                {detailData.pass_percent} %
-              </span>
-            </div>
-            <div>
-              <span className="certificate-details">실기 합격률 : </span>
-              <span className="certificate-values">
-                {detailData.pass_percent_sil} %
-              </span>
-            </div>
-            <div>
-              <span className="certificate-details">필기 접수비 : </span>
-              <span className="certificate-values">{detailData.cost} 원</span>
-            </div>
-            <div>
-              <span className="certificate-details">실기 접수비 : </span>
-              <span className="certificate-values">
-                {detailData.cost_sil} 원
-              </span>
-            </div>
+            <CertDetail category={"주관"} value={detailData[0].department} />
+            {Object.keys(catName).map((key) => (
+              <CertDetail
+                category={catName[key]}
+                value={`${detailData[0][key]} ${unit[key]}`}
+              />
+            ))}
           </div>
         </div>
       ) : (
