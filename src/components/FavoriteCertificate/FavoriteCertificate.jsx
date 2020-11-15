@@ -18,7 +18,7 @@ const FavoriteCertificate = ({ myData, myLikeData, revalidateLikes }) => {
         `/api/cert-like`,
         {
           email: myData.email,
-          cert_id: value,
+          cert_id: parseInt(value),//value,
         },
         {
           headers: {
