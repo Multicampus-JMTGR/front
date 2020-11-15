@@ -33,7 +33,7 @@ const SmallCalendar = ({ myLikeData }) => {
   const [value, setValue] = useState(new Date());
   const [dates, setDates] = useState([]);
   const [curCertId, setCurCertId] = useState(
-    myLikeData && myLikeData[0].cert_id
+    myLikeData[0] ? myLikeData[0].cert_id : -1
   );
   const { data: certData } = useSWR(
     `/api/mypage-certschedule/${curCertId}`,

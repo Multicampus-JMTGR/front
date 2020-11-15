@@ -34,6 +34,7 @@
 
 - optimization
 [V] loadable component ( dynamic import )
+[V] optimistic UI
 [ ] useCallback
 
 - used
