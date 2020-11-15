@@ -4,7 +4,7 @@ import "./FavoriteCertificate.css";
 import axios from "axios";
 import PopUpLoading from "../Loading/PopUpLoading";
 
-const FavoriteCertificate = ({ myData, revalidateUser }) => {
+const FavoriteCertificate = ({ myData, myLikeData, revalidateLikes }) => {
   const [isLoading, setIsLoading] = useState(false);
   //   useEffect(() => {
   //   }, []);
@@ -14,12 +14,20 @@ const FavoriteCertificate = ({ myData, revalidateUser }) => {
     } = e;
     setIsLoading(true);
     axios
-      .post(`/api/cert_like/${myData.email}/${value}`, {
-        email: myData.email,
-        cert_id: value,
-      })
+      .post(
+        `/api/cert-like`,
+        {
+          email: myData.email,
+          cert_id: value,
+        },
+        {
+          headers: {
+            "content-type": "application/json",
+          },
+        }
+      )
       .then((res) => {
-        revalidateUser();
+        revalidateLikes();
         setIsLoading(false);
         console.log(res);
       })
@@ -31,8 +39,8 @@ const FavoriteCertificate = ({ myData, revalidateUser }) => {
       <span>Favorite Certificates</span>
       <div className="favorite-certificate-inner-container">
         <ul>
-          {myData && myData.cert_likes.length !== 0 ? (
-            myData.cert_likes.map((favCert, i) => (
+          {myLikeData ? (
+            myLikeData.map((favCert, i) => (
               <li key={i} className="favorite-certificate-list">
                 <Link to={`/detail/${favCert.cert_id}`}>{favCert.name}</Link>
                 <button value={favCert.cert_id} onClick={onClickDelete}>

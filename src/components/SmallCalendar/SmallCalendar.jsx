@@ -4,6 +4,7 @@ import moment from "moment";
 import "react-calendar/dist/Calendar.css";
 import "./SmallCalendar.css";
 import Popup from "reactjs-popup";
+import axios from "axios";
 import {
   Radio,
   RadioGroup,
@@ -11,7 +12,8 @@ import {
   FormControl,
   FormLabel,
 } from "@material-ui/core";
-
+import useSWR from "swr";
+import fetcher from "utils/fetcher";
 const bulletColor = {
   reg_start: "#07fc03",
   test_start: "#07fc03",
@@ -26,59 +28,69 @@ const eventType = {
   test_end: "시험날",
   result: "결과 발표",
 };
-const SmallCalendar = ({ myData }) => {
+
+const SmallCalendar = ({ myLikeData }) => {
   const [value, setValue] = useState(new Date());
   const [dates, setDates] = useState([]);
-  const [curCertId, setCurCertId] = useState(myData.cert_likes[0]?.cert_id);
-  const [certData, setCertData] = useState(myData.cert_likes[0]?.cert_schedule);
-  //   const { data: certData} = useSWR(`/api/certificate`)
+  const [curCertId, setCurCertId] = useState(
+    myLikeData && myLikeData[0].cert_id
+  );
+  const { data: certData } = useSWR(
+    `/api/mypage-certschedule/${curCertId}`,
+    fetcher
+  );
   useEffect(() => {
     let ds = [];
     if (certData) {
-      certData.cert_schedule?.forEach((e) => {
+      //   console.log("useE :", curCertId);
+      //   console.log("mylike :", myLikeData);
+      let curData = myLikeData?.find(
+        (e) => parseInt(e.cert_id) === parseInt(curCertId)
+      );
+      //   console.log(curData);
+      certData?.forEach((e) => {
         ds.push({
-          cert_info: certData,
+          title: curData?.name,
           test_type: e.test_type,
           type: "reg_start",
           d: e.reg_start_date,
         });
         ds.push({
-          cert_info: certData,
+          title: curData?.name,
           test_type: e.test_type,
           type: "reg_end",
           d: e.reg_end_date,
         });
         ds.push({
-          cert_info: certData,
+          title: curData?.name,
           test_type: e.test_type,
           type: "test_start",
           d: e.test_start_date,
         });
         ds.push({
-          cert_info: certData,
+          title: curData?.name,
           test_type: e.test_type,
           type: "test_end",
           d: e.test_end_date,
         });
         ds.push({
-          cert_info: certData,
+          title: curData?.name,
           test_type: e.test_type,
           type: "result",
           d: e.result_date_1,
         });
         ds.push({
-          cert_info: certData,
+          title: curData?.name,
           test_type: e.test_type,
           type: "result",
           d: e.resutl_date_2,
         });
       });
+      //   console.log(ds);
       setDates(ds);
     }
-    console.log(myData);
-  }, [curCertId]);
-
-  const tileContent = ({ activeStartDate, date, view }) => {
+  }, [certData, curCertId]);
+  const TileContent = ({ activeStartDate, date, view }) => {
     let event = dates.find((d) => d.d == moment(date).format("YYYY-MM-DD"));
     return event ? (
       <Popup
@@ -102,16 +114,16 @@ const SmallCalendar = ({ myData }) => {
             {moment(date).format("YYYY/ MM / DD")}
           </div>
           <div style={{ fontSize: "1.2rem" }}>
-            <span>{event.cert_info.name}</span>{" "}
+            <span>{event.title}</span>{" "}
             <span style={{ color: "#e85a4f" }}>
               {event.test_type} {eventType[event.type]}
             </span>
           </div>
           <div>
-            <div style={{ marginTop: "1rem" }}>
+            {/* <div style={{ marginTop: "1rem" }}>
               주관 : {event.cert_info.department}
-            </div>
-            {event.test_type === "필기" ? (
+            </div> */}
+            {/* {event.test_type === "필기" ? (
               <>
                 <div>필기 접수 가격 : {event.cert_info.cost} 원</div>
                 <div>필기 합격률 : {event.cert_info.pass_percent}%</div>
@@ -121,7 +133,7 @@ const SmallCalendar = ({ myData }) => {
                 <div>실기 접수 가격 : {event.cert_info.cost_sil} 원</div>
                 <div>실기 합격률 : {event.cert_info.pass_percent_sil}%</div>
               </>
-            )}
+            )} */}
           </div>
         </div>
       </Popup>
@@ -132,8 +144,8 @@ const SmallCalendar = ({ myData }) => {
       target: { value },
     } = e;
     setCurCertId(value);
-    let cd = myData.cert_likes.find((e) => e.cert_id == value);
-    setCertData(cd);
+    // let cd = myData.cert_likes.find((e) => e.cert_id == value);
+    // setCertData(cd);
   };
   return (
     <div className="small-calendar-container">
@@ -141,9 +153,9 @@ const SmallCalendar = ({ myData }) => {
         className="small-calendar"
         value={value}
         calendarType={"US"}
-        tileContent={tileContent}
+        tileContent={TileContent}
       />
-      {myData.cert_likes.length ? (
+      {myLikeData ? (
         <div style={{ marginTop: "3vh" }}>
           <FormControl component="fieldset">
             <FormLabel
@@ -158,12 +170,13 @@ const SmallCalendar = ({ myData }) => {
               달력에 일정을 표시할 자격증 선택
             </FormLabel>
             <RadioGroup aria-label="cert" value={value} onChange={onClickCheck}>
-              {myData?.cert_likes.map((e, i) => (
+              {myLikeData.map((e, i) => (
                 <FormControlLabel
+                  key={`likes-${i}`}
                   control={
                     <Radio
                       checked={e.cert_id == curCertId ? true : false}
-                      style={{ color: "#e98074" }}
+                      style={{ color: "#e98074", marginBottom: "1vh" }}
                     />
                   }
                   label={e.name}

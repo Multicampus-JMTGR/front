@@ -105,7 +105,7 @@ const CustomToolbar = (toolbar) => {
         <div className="label-today">
           <label className="label-date">{label()}</label>
           <span className="today-span" onClick={goToCurrent}>
-            Go to today
+            Go today
           </span>
         </div>
         <ArrowForwardIosIcon className="arrow-icons" onClick={goToNext} />

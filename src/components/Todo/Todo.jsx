@@ -10,27 +10,32 @@ import { useSelector } from "react-redux";
 import fetcher from "utils/fetcher";
 import useSWR from "swr";
 import axios from "axios";
-import { Loading } from "components";
+import CircularProgress from "@material-ui/core/CircularProgress";
 const Todo = () => {
   const [todoText, setTodoText] = useState("");
+  const [init, setInit] = useState(true);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorText, setErrorText] = useState("");
-  const [checkedTodo, setCheckedTodo] = useState("");
   const [todoList, setTodoList] = useState([]);
   const userObj = useSelector((state) => state.auth.userObj);
   const { data: fetchedTodoList, revalidate: revalidateTodo } = useSWR(
-    `api/user/todolist/${1}/${userObj.profileObj.email}`,
+    `api/user/todolist/${userObj.profileObj.email}`,
     fetcher
   );
+
   useEffect(() => {
+    // if (init) {
     if (fetchedTodoList) {
       setLoading(false);
       setTodoList(fetchedTodoList);
     } else {
       setLoading(true);
     }
-  }, []);
+    // setInit(false);
+    // }
+  }, [fetchedTodoList]);
+
   const onChange = (event) => {
     setError(false);
     const {
@@ -41,8 +46,7 @@ const Todo = () => {
 
   const onKeyPress = (event) => {
     if (event.key === "Enter") {
-      setLoading(true);
-      if (todoList.find((e) => e === todoText)) {
+      if (todoList.find((e) => e.contents === todoText) || todoText === "") {
         todoList.concat();
         setError(true);
         setErrorText(todoText);
@@ -56,7 +60,6 @@ const Todo = () => {
             email: userObj.profileObj.email,
           })
           .then((res) => {
-            setLoading(false);
             revalidateTodo();
             console.log(res);
           })
@@ -67,38 +70,46 @@ const Todo = () => {
       setTodoText("");
     }
   };
-  const onChecked = (e) => {
-    setLoading(true);
 
+  const onChecked = (e) => {
     const {
       target: { id, value },
     } = e;
     let cont = id.split("-")[1];
-    console.log(value);
-    let idx = todoList.indexOf(value),
-      tempList = todoList.concat();
-    tempList.splice(idx, 1);
-    setTodoList(tempList);
-    axios
-      .delete(`/api/user/todolist?content=${cont}`)
-      .then((res) => {
-        setLoading(false);
-        revalidateTodo();
-        console.log(res);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    console.log(cont);
+    // console.log(value);
+    let idx = -1;
+    todoList.forEach((e, i) => {
+      if (e.contents === value) {
+        idx = i;
+      }
+    });
+    if (idx !== -1) {
+      let tempList = todoList.concat();
+      //   console.log(idx);
+      tempList.splice(idx, 1);
+      setTodoList(tempList);
+      axios
+        .delete(`/api/user/todolist?content=${cont}`)
+        .then((res) => {
+          revalidateTodo();
+          //   setInit(true);
+          console.log(res);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }
   };
+
   return (
     <div className="todo-certificate-container">
       <span className="todo-title">Todo</span>
-      {/* {console.log(fetchedTodoList)} */}
-      {!loading ? (
-        <div className="todo-certificate-inner-container">
+      <div className="todo-certificate-inner-container">
+        {!loading ? (
           <ul>
             <FormGroup>
-              {fetchedTodoList?.map((todo, index) => (
+              {todoList?.map((todo, index) => (
                 <li key={`todo-${index}`} className="todo-certificate-list">
                   <FormControlLabel
                     className="todo-certificate-todo-text"
@@ -117,10 +128,10 @@ const Todo = () => {
               ))}
             </FormGroup>
           </ul>
-        </div>
-      ) : (
-        <Loading />
-      )}
+        ) : (
+          <CircularProgress color="secondary" style={{ marginLeft: "2vw" }} />
+        )}
+      </div>
       {error && (
         <span
           className="todo-title"

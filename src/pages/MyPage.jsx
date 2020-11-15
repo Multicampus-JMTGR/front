@@ -20,7 +20,10 @@ const MyPage = () => {
     `/api/user/${userObj.profileObj.email}`,
     fetcher
   );
-
+  const { data: myLikeData, revalidate: revalidateLikes } = useSWR(
+    `/api/user/likes/${userObj.profileObj.email}`,
+    fetcher
+  );
   useEffect(() => {
     !isSignedIn && dispatch(needSigningIn());
     // console.log(myData);
@@ -33,12 +36,13 @@ const MyPage = () => {
           <div className="mypage-container">
             <div className="mypage-container-upper">
               <Profile userObj={userObj} myData={myData} />
-              <SmallCalendar myData={myData} />
+              <SmallCalendar myData={myData} myLikeData={myLikeData} />
             </div>
             <div className="mypage-container-downer">
               <FavoriteCertificate
                 myData={myData}
-                revalidateUser={revalidateUser}
+                myLikeData={myLikeData}
+                revalidateLikes={revalidateLikes}
               />
               <Todo />
             </div>

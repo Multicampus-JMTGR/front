@@ -49,10 +49,18 @@ const Detail = () => {
     setAlreadyLike((prev) => !prev);
     setIsLoading(true);
     axios
-      .post(`/api/cert-like`, {
-        email: userObj.profileObj.email,
-        cert_id: certId,
-      })
+      .post(
+        `/api/cert-like`,
+        {
+          email: userObj.profileObj.email,
+          cert_id: certId,
+        },
+        {
+          headers: {
+            "content-type": "application/json",
+          },
+        }
+      )
       .then((res) => {
         revalidateUser();
         setIsLoading(false);
