@@ -16,16 +16,19 @@ const MyPage = () => {
   const dispatch = useDispatch();
   const isSignedIn = useSelector((state) => state.auth.isSignedIn);
   const userObj = useSelector((state) => state.auth.userObj);
-  const { data: myData, revalidate: revalidateUser } = useSWR(
-    `/api/user/${userObj.profileObj.email}`,
+  const { data: myData } = useSWR(
+    userObj && `/api/user/${userObj.profileObj.email}`,
     fetcher
   );
   const { data: myLikeData, revalidate: revalidateLikes } = useSWR(
-    `/api/user/likes/${userObj.profileObj.email}`,
+    userObj && `/api/user/likes/${userObj.profileObj.email}`,
     fetcher
   );
   useEffect(() => {
-    !isSignedIn && dispatch(needSigningIn());
+    if (!isSignedIn) {
+      dispatch(needSigningIn());
+      <Redirect to="/" />;
+    }
     // console.log(myData);
   }, []);
 
