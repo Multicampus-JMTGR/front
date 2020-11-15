@@ -173,37 +173,6 @@ ul {
   cursor: pointer;
 }
 
-.certificat-detail-category-value {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: auto;
-  width: 35vw;
-}
-
-.certificate-details {
-  color: #8e8d8a;
-  margin: 1vh 5vw;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
-.certificate-values {
-  color: #e98074;
-  margin-left: auto;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-}
-
 .certificate-detail-inner-container {
   border-radius: 2rem;
   border: 0px solid #8e8d8a;

@@ -1,0 +1,20 @@
+@import "../../css/Flex.scss";
+@import "../../css/FontAndColor.scss";
+@import "../../css/ComponentBorder.scss";
+
+.certificat-detail-category-value {
+  @include flex-div-align-justify(row, center, space-between);
+  width: inherit;
+  margin: 2vh 2vw;
+  width: 25vw;
+}
+.certificate-details {
+  color: $theme-color-3;
+  //   margin-right: auto;
+  justify-content: flex-start;
+}
+.certificate-values {
+  color: $theme-color-4;
+  //   margin-left: auto;
+  justify-content: flex-end;
+}

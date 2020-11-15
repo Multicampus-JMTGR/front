@@ -42,7 +42,7 @@ const FavoriteCertificate = ({ myData, revalidateUser }) => {
             ))
           ) : (
             <li className="favorite-certificate-list">
-              No certificate You Like
+              No certificate You Liked
             </li>
           )}
         </ul>

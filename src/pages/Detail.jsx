@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import useSWR from "swr";
 import fetcher from "utils/fetcher";
 import "layouts/App/App.css";
-import { Loading, PopUpLoading, SearchForm } from "components";
+import { Loading, PopUpLoading, SearchForm, CertDetail } from "components";
 import axios from "axios";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
@@ -25,14 +25,7 @@ const unit = {
   cost: " 원",
   cost_sil: " 원",
 };
-const CertDetail = ({ category, value }) => {
-  return (
-    <div className="certificat-detail-category-value">
-      <span className="certificate-details"> {category}</span>
-      <span className="certificate-values">{value}</span>
-    </div>
-  );
-};
+
 const Detail = () => {
   const [alreadyLike, setAlreadyLike] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -56,17 +49,16 @@ const Detail = () => {
     setAlreadyLike((prev) => !prev);
     setIsLoading(true);
     axios
-      .post(`/api/cert_like/${userObj.profileObj.email}/${certId}`, {
+      .post(`/api/cert-like`, {
         email: userObj.profileObj.email,
         cert_id: certId,
       })
       .then((res) => {
         revalidateUser();
         setIsLoading(false);
-        setAlreadyLike(true);
-        console.log(res);
+        console.log("res ", res);
       })
-      .catch((e) => console.log(e));
+      .catch((e) => console.log("Like Error \n", e));
   };
 
   if (isLoading) return <PopUpLoading isLoading={isLoading} />;
@@ -80,7 +72,7 @@ const Detail = () => {
       {detailData ? (
         <div className="certificate-detail-container">
           <div className="certificate-detail-name-like">
-            <a href={detailData.link} target="_blank">
+            <a href={detailData.link} target="_blank" rel="noreferrer">
               {detailData.name}
             </a>
             {alreadyLike ? (
@@ -91,8 +83,9 @@ const Detail = () => {
           </div>
           <div className="certificate-detail-inner-container">
             <CertDetail category={"주관"} value={detailData.department} />
-            {Object.keys(catName).map((key) => (
+            {Object.keys(catName).map((key, index) => (
               <CertDetail
+                key={`detail-category-${index}`}
                 category={catName[key]}
                 value={`${detailData[key]} ${unit[key]}`}
               />

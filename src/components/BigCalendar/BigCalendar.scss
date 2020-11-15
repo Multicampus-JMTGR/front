@@ -1,5 +1,7 @@
-@import "css/Flex.scss";
-@import "css/FontAndColor.scss";
+@import "../../css/Flex.scss";
+@import "../../css/FontAndColor.scss";
+@import "../../css/ComponentBorder.scss";
+
 .toolbar-container {
   @include flex-div(row);
 }
@@ -39,4 +41,57 @@
 .month-year-label {
   font-size: 1.2rem;
   color: $theme-color-5;
+}
+.big-calendar-popup {
+  @include flex-div-align-justify(column, center, center);
+  width: 100%;
+  a {
+    font-size: 1.5rem;
+    color: $theme-color-5;
+    &:hover {
+      font-size: 1.55rem;
+      color: $theme-color-4;
+    }
+  }
+  .big-calendar-popup-department {
+    color: $theme-color-3;
+  }
+  .big-calendar-popup-category {
+    color: $theme-color-5;
+    font-size: 2rem;
+    margin: 1rem;
+  }
+}
+.show-more-container {
+  @include flex-div-align-justify(column, center, center);
+  span {
+    border: none;
+    background-color: $theme-color-1;
+    font-size: 2rem;
+    color: $theme-color-5;
+    margin: 5vh auto;
+  }
+  span:hover {
+    border: none;
+    background-color: $theme-color-1;
+    font-size: 2rem;
+    color: $theme-color-3;
+    margin: 5vh auto;
+  }
+}
+
+.show-more {
+  //   @include flex-div-align-justify(column, center, center);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20%, auto));
+  width: 90vw;
+  min-height: 60vh;
+  background-color: $theme-color-1;
+}
+.show-more-div {
+  margin: 0.5rem;
+  color: $theme-color-3;
+  &:hover {
+    color: $theme-color-4;
+  }
 }

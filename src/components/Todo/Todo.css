@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Amaranth&family=Nanum+Gothic:wght@700&display=swap");
 .todo-certificate-container {
   width: 40vw;
   margin-left: auto;
@@ -57,5 +58,7 @@
   width: calc(25vw - 10%);
   margin: 1vh auto;
   padding-left: 2vw;
+  font-family: "Amaranth", "Nanum Gothic", sans-serif;
+  font-size: 1.1rem;
 }
 /*# sourceMappingURL=Todo.css.map */
