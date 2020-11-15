@@ -32,15 +32,14 @@ const eventType = {
 const SmallCalendar = ({ myLikeData }) => {
   const [value, setValue] = useState(new Date());
   const [dates, setDates] = useState([]);
-  const [curCertId, setCurCertId] = useState(
-    myLikeData.length ? myLikeData[0].cert_id : -1
-  );
+  const [curCertId, setCurCertId] = useState(-1);
   const { data: certData } = useSWR(
     `/api/mypage-certschedule/${curCertId}`,
     fetcher
   );
   useEffect(() => {
     let ds = [];
+
     if (certData) {
       //   console.log("useE :", curCertId);
       //   console.log("mylike :", myLikeData);
