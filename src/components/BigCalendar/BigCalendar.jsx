@@ -156,7 +156,7 @@ const BigCalendar = () => {
   const makeDateObject = (date) => {
     let year = date[0];
     let month = date[1];
-    let day = parseInt(date[2]) + 1;
+    let day = parseInt(date[2]) +1;
     return new Date(year, month, day);
   };
 

@@ -41,7 +41,7 @@ const Home = () => {
   return (
     <>
       <div>
-        {isSignedIn ? (
+        {(
           <>
             <SearchForm />
             <div className="pop-certs">
@@ -66,9 +66,7 @@ const Home = () => {
             </div>
             {/* <button onClick={getTestData}>aa</button> */}
           </>
-        ) : (
-          <SearchForm />
-        )}
+        ) }
       </div>
     </>
   );

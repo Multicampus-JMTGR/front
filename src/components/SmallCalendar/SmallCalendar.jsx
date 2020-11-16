@@ -161,9 +161,10 @@ const SmallCalendar = ({ myLikeData }) => {
               component="legend"
               style={{
                 color: "#e85a4f",
-                fontSize: "1.3rem",
+                fontSize: "1.2rem",
                 margin: "2vh",
                 fontWeight: "bold",
+                
               }}
             >
               달력에 일정을 표시할 자격증 선택
